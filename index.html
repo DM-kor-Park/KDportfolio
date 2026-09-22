@@ -1697,58 +1697,97 @@
     // ⭐️ [이력서, 자기소개서, 포트폴리오 기본 메타 데이터 정의] ⭐️
     // ========================================================
     const DEFAULT_RESUME_DATA = {
-      name: "김민재",
-      title: "Junior Interior Designer",
-      birth: "2001. 00. 00",
-      phone: "010-0000-0000",
-      email: "portfolio.designer@gmail.com",
-      address: "서울특별시 마포구 양화로 000",
-      intro: "공간에 머무는 사람의 행태를 분석하고, 심미성과 시공 가능성을 동시에 갖춘 도면을 그립니다. 스케치업 모델링과 D5 Render를 통한 빠른 실시간 시각화, 그리고 AutoCAD를 이용한 정밀 실시설계가 가능합니다.",
-      education: [
-        { period: "2020.03 ~ 2024.02", school: "OO대학교", major: "실내건축디자인학과", status: "졸업 (학사)" },
-        { period: "2024.03 ~ 2024.09", school: "실내건축 전문 교육원", major: "실내건축 취업 포트폴리오 과정", status: "수료" }
-      ],
-      certificates: [
-        { date: "2024. 06", name: "실내건축기사", issuer: "한국산업인력공단", note: "국가기술자격" },
-        { date: "2023. 09", name: "전산응용건축제도기능사", issuer: "한국산업인력공단", note: "국가기술자격" }
-      ],
-      software: [
-        { name: "AutoCAD", level: 95, desc: "평면/천장/입면/상세도 (상 95%)" },
-        { name: "SketchUp", level: 95, desc: "3D 공간 모델링 (상 95%)" },
-        { name: "D5 Render", level: 90, desc: "실시간 레이트레이싱 (상 90%)" },
-        { name: "3ds Max / V-Ray", level: 85, desc: "하이퍼리얼 렌더 (중상 85%)" },
-        { name: "Photoshop", level: 90, desc: "리터칭 및 컬러링 (상 90%)" },
-        { name: "InDesign", level: 85, desc: "포트폴리오 북 레이아웃 (중상 85%)" }
-      ]
-    };
+  "name": "손흥민",
+  "title": "Junior Interior Designer",
+  "birth": "1992. 00. 00",
+  "phone": "010-1234-1234",
+  "email": "kdportfolio@gmail.com",
+  "address": "서울특별시 마포구 양화로 000",
+  "intro": "공간에 머무는 사람의 행태를 분석하고, 심미성과 시공 가능성을 동시에 갖춘 도면을 그립니다. 스케치업 모델링과 D5 Render를 통한 빠른 실시간 시각화, 그리고 AutoCAD를 이용한 정밀 실시설계가 가능합니다.",
+  "education": [
+    {
+      "period": "2020.03 ~ 2024.02",
+      "school": "OO대학교",
+      "major": "실내건축디자인학과",
+      "status": "졸업 (학사)"
+    },
+    {
+      "period": "2024.03 ~ 2024.09",
+      "school": "실내건축 전문 교육원",
+      "major": "실내건축 취업 포트폴리오 과정",
+      "status": "수료"
+    }
+  ],
+  "certificates": [
+    {
+      "date": "2024. 06",
+      "name": "실내건축기사",
+      "issuer": "한국산업인력공단",
+      "note": "국가기술자격"
+    },
+    {
+      "date": "2023. 09",
+      "name": "전산응용건축제도기능사",
+      "issuer": "한국산업인력공단",
+      "note": "국가기술자격"
+    }
+  ],
+  "software": [
+    {
+      "name": "AutoCAD",
+      "level": 95,
+      "desc": "평면/천장/입면/상세도 (상 95%)"
+    },
+    {
+      "name": "SketchUp",
+      "level": 95,
+      "desc": "3D 공간 모델링 (상 95%)"
+    },
+    {
+      "name": "D5 Render",
+      "level": 90,
+      "desc": "실시간 레이트레이싱 (상 90%)"
+    },
+    {
+      "name": "3ds Max / V-Ray",
+      "level": 85,
+      "desc": "하이퍼리얼 렌더 (중상 85%)"
+    },
+    {
+      "name": "Photoshop",
+      "level": 90,
+      "desc": "리터칭 및 컬러링 (상 90%)"
+    }
+  ]
+};
 
     const DEFAULT_COVER_LETTER_DATA = {
-      headerTitle: "Junior Interior Architect Cover Letter",
-      mainTitle: "자 기 소 개 서",
-      subtitle: "지원자: 김 민 재",
-      items: [
-        {
-          title: "01. 지원 동기 — 공간의 비례와 디테일에 온기를 더하는 디자이너",
-          targetChars: 500,
-          content: "공간을 설계한다는 것은 단순히 심미적인 외형을 연출하는 것을 넘어, 그 안에서 생활하는 사람의 행태와 동선, 그리고 보이지 않는 치수 체계가 유기적으로 맞물릴 때 비로소 진정한 생명력을 얻는다고 생각합니다.\n\n대학과 실무 집중 과정을 거치며 2D CAD 실시설계와 3D 공간 시각화 파이프라인을 체계적으로 훈련했습니다. 상상이 도면으로, 다시 도면이 실제 시공 가능한 물리적 공간으로 구현되는 전 과정을 경험하며 실내건축 디자이너로서의 깊은 자부심과 성취감을 느꼈습니다.\n\n공간의 본질과 완성도 높은 디테일을 타협 없이 추구하는 귀사에서, 기본기가 단단하고 사용자 경험을 세심하게 배려하는 신입 실내건축 디자이너로서 함께 성장하고자 지원하였습니다. 현장의 목소리를 경청하며 도면 위의 선 하나에도 명확한 설계 근거와 책임을 다하는 실무형 인재가 되겠습니다."
-        },
-        {
-          title: "02. 성격의 장단점 및 직무 태도 — 1mm의 오차도 타협하지 않는 끈기와 유연한 소통",
-          targetChars: 500,
-          content: "저의 가장 큰 강점은 1mm의 치수 오차도 가볍게 넘기지 않는 집요한 꼼꼼함과, 팀원들의 다양한 의견을 유연하게 수용하는 경청의 태도입니다.\n\n프로젝트를 진행할 때 평면과 천장, 입면의 치수가 서로 정확히 일치하는지 반복 교차 검증하며 도면의 정합성을 확보합니다. 1:50 도면 작성 시 레이어 체계화와 선 가중치 기준을 엄격히 준수하여 협업자 간 오독을 원천 차단합니다. 한편, 완성도를 높이고자 하는 욕심에 초기 검토 시간이 다소 길어질 수 있다는 점을 인지한 후로는, 작업 우선순위를 명확히 구조화하고 단계별 마감 데드라인을 선제적으로 설정하여 작업 효율성과 정밀함을 동시에 확보하고 있습니다.\n\n철저한 레이어 체계화와 표준화된 도면 관리 역량을 바탕으로, 협업 과정에서 혼선 없는 명확한 커뮤니케이션을 실천하는 든든한 팀원이 되겠습니다."
-        },
-        {
-          title: "03. 직무 역량 및 프로젝트 경험 — 2D CAD 실시설계부터 3D 시각화까지 전 과정 완주",
-          targetChars: 1000,
-          content: "[기획 논리부터 2D 실시설계 및 3D 렌더까지 전 과정 완주 경험]\n실내건축 디자이너로서의 실무 역량을 증명하기 위해, 단순 콘셉트 제안에 머무르지 않고 실제 현장에서 시공 가능한 수준의 완결성을 갖춘 포트폴리오를 스스로 완성했습니다.\n\n대표 프로젝트인 '성수 프리미엄 헤어살롱(215㎡)'에서는 1:1 맞춤형 서비스 공간의 특성을 분석하여 리셉션-경대 시술 존-프라이빗 샴푸실-약제 조색실로 이어지는 기능적 조닝을 체계화했습니다. 고객의 편안한 이동 동선과 디자이너의 신속한 작업 동선이 서로 간섭되지 않도록 1,500mm 이상의 여유로운 순환 동선을 구축했으며, 샴푸실에는 눈부심을 방지하는 3000K 간접 코브 조명을 계획했습니다. 나아가 1:50 평면도, 천장 조명 배선도(RCP), 주요 전개도(입면)는 물론 카운터 및 샴푸대 하부 급배수 배관 매립 단면과 방수 디테일을 정밀 1:10 축척으로 도면화하며 현장 시공성을 철저히 검증했습니다.\n\n또한 '한남 하이엔드 주거 레지던스 리노베이션' 및 '판교 스마트 테크 오피스' 프로젝트를 통해 주거와 업무 공간의 다채로운 스케일과 프로그램을 경험했습니다. 주거 공간에서는 가족 구성원의 라이프스타일을 배려한 수납 모듈화와 히든 도어 디테일을 연구했고, 오피스 공간에서는 집중형 웜 워크플레이스와 개방형 타운홀 라운지의 음향 및 조명 계획을 수립했습니다. AutoCAD를 활용한 레이어 표준화 및 선 가중치 체계를 엄격히 준수하고, SketchUp과 D5 Render를 연계한 실시간 렌더링 파이프라인으로 주야간 조도 및 마감재 물성을 사전 시뮬레이션했습니다.\n\n이처럼 기획 논리 수립부터 정밀 도면 세트 패키징, 3D 공간 시각화까지 하나의 프로젝트를 온전히 책임지고 완성해 본 경험은 입사 후 팀의 실시설계 납품과 현장 감리 소통에 즉각 기여할 수 있는 저만의 가장 단단한 무기입니다."
-        },
-        {
-          title: "04. 입사 후 포부 — 기본이 단단한 도면으로 현장의 신뢰를 얻는 핵심 주니어",
-          targetChars: 500,
-          content: "입사 초기에는 선배 디자이너분들의 설계 의도를 오차 없이 신속 정확하게 도면화하고, 팀의 프로젝트 일정을 안정적으로 뒷받침하는 믿음직한 러닝메이트가 되겠습니다.\n\n현장 감리와 협력업체 소통을 통해 도면이 실제 물리적 공간으로 치환되는 실무 현장의 감각을 부지런히 체득하고, 건축 법규와 소방 기준, 특화 결구 상세도를 능숙하게 다루는 테크니컬 스페셜리스트로 성장하겠습니다. 도면 위의 수치 하나에도 명확한 설계 근거를 제시할 수 있는 실력을 다지겠습니다.\n\n선배님들의 실무 노하우를 스펀지처럼 빠르게 흡수하여 팀의 작업 효율을 극대화하고, 신속한 3D 시각화 지원으로 클라이언트 미팅의 신뢰도를 높이겠습니다. 장기적으로는 공간의 감성과 기능성, 비즈니스 가치를 두루 아우르며, 클라이언트와 시공사 모두에게 두터운 신뢰를 얻는 귀사의 핵심 프로젝트 디렉터로 당당히 자리매김하겠습니다."
-        }
-      ]
-    };
+  "headerTitle": "Junior Interior Architect Cover Letter",
+  "mainTitle": "자 기 소 개 서",
+  "subtitle": "지원자: 김 민 재",
+  "items": [
+    {
+      "title": "01. 지원 동기 — 공간의 비례와 디테일에 온기를 더하는 디자이너",
+      "targetChars": 500,
+      "content": "공간을 설계한다는 것은 단순히 심미적인 외형을 연출하는 것을 넘어, 그 안에서 생활하는 사람의 행태와 동선, 그리고 보이지 않는 치수 체계가 유기적으로 맞물릴 때 비로소 진정한 생명력을 얻는다고 생각합니다.\n\n대학과 실무 집중 과정을 거치며 2D CAD 실시설계와 3D 공간 시각화 파이프라인을 체계적으로 훈련했습니다. 상상이 도면으로, 다시 도면이 실제 시공 가능한 물리적 공간으로 구현되는 전 과정을 경험하며 실내건축 디자이너로서의 깊은 자부심과 성취감을 느꼈습니다.\n\n공간의 본질과 완성도 높은 디테일을 타협 없이 추구하는 귀사에서, 기본기가 단단하고 사용자 경험을 세심하게 배려하는 신입 실내건축 디자이너로서 함께 성장하고자 지원하였습니다. 현장의 목소리를 경청하며 도면 위의 선 하나에도 명확한 설계 근거와 책임을 다하는 실무형 인재가 되겠습니다."
+    },
+    {
+      "title": "02. 성격의 장단점 및 직무 태도 — 1mm의 오차도 타협하지 않는 끈기와 유연한 소통",
+      "targetChars": 500,
+      "content": "저의 가장 큰 강점은 1mm의 치수 오차도 가볍게 넘기지 않는 집요한 꼼꼼함과, 팀원들의 다양한 의견을 유연하게 수용하는 경청의 태도입니다.\n\n프로젝트를 진행할 때 평면과 천장, 입면의 치수가 서로 정확히 일치하는지 반복 교차 검증하며 도면의 정합성을 확보합니다. 1:50 도면 작성 시 레이어 체계화와 선 가중치 기준을 엄격히 준수하여 협업자 간 오독을 원천 차단합니다. 한편, 완성도를 높이고자 하는 욕심에 초기 검토 시간이 다소 길어질 수 있다는 점을 인지한 후로는, 작업 우선순위를 명확히 구조화하고 단계별 마감 데드라인을 선제적으로 설정하여 작업 효율성과 정밀함을 동시에 확보하고 있습니다.\n\n철저한 레이어 체계화와 표준화된 도면 관리 역량을 바탕으로, 협업 과정에서 혼선 없는 명확한 커뮤니케이션을 실천하는 든든한 팀원이 되겠습니다."
+    },
+    {
+      "title": "03. 직무 역량 및 프로젝트 경험 — 2D CAD 실시설계부터 3D 시각화까지 전 과정 완주",
+      "targetChars": 1000,
+      "content": "[기획 논리부터 2D 실시설계 및 3D 렌더까지 전 과정 완주 경험]\n실내건축 디자이너로서의 실무 역량을 증명하기 위해, 단순 콘셉트 제안에 머무르지 않고 실제 현장에서 시공 가능한 수준의 완결성을 갖춘 포트폴리오를 스스로 완성했습니다.\n\n대표 프로젝트인 '성수 프리미엄 헤어살롱(215㎡)'에서는 1:1 맞춤형 서비스 공간의 특성을 분석하여 리셉션-경대 시술 존-프라이빗 샴푸실-약제 조색실로 이어지는 기능적 조닝을 체계화했습니다. 고객의 편안한 이동 동선과 디자이너의 신속한 작업 동선이 서로 간섭되지 않도록 1,500mm 이상의 여유로운 순환 동선을 구축했으며, 샴푸실에는 눈부심을 방지하는 3000K 간접 코브 조명을 계획했습니다. 나아가 1:50 평면도, 천장 조명 배선도(RCP), 주요 전개도(입면)는 물론 카운터 및 샴푸대 하부 급배수 배관 매립 단면과 방수 디테일을 정밀 1:10 축척으로 도면화하며 현장 시공성을 철저히 검증했습니다.\n\n또한 '한남 하이엔드 주거 레지던스 리노베이션' 및 '판교 스마트 테크 오피스' 프로젝트를 통해 주거와 업무 공간의 다채로운 스케일과 프로그램을 경험했습니다. 주거 공간에서는 가족 구성원의 라이프스타일을 배려한 수납 모듈화와 히든 도어 디테일을 연구했고, 오피스 공간에서는 집중형 웜 워크플레이스와 개방형 타운홀 라운지의 음향 및 조명 계획을 수립했습니다. AutoCAD를 활용한 레이어 표준화 및 선 가중치 체계를 엄격히 준수하고, SketchUp과 D5 Render를 연계한 실시간 렌더링 파이프라인으로 주야간 조도 및 마감재 물성을 사전 시뮬레이션했습니다.\n\n이처럼 기획 논리 수립부터 정밀 도면 세트 패키징, 3D 공간 시각화까지 하나의 프로젝트를 온전히 책임지고 완성해 본 경험은 입사 후 팀의 실시설계 납품과 현장 감리 소통에 즉각 기여할 수 있는 저만의 가장 단단한 무기입니다."
+    },
+    {
+      "title": "04. 입사 후 포부 — 기본이 단단한 도면으로 현장의 신뢰를 얻는 핵심 주니어",
+      "targetChars": 500,
+      "content": "입사 초기에는 선배 디자이너분들의 설계 의도를 오차 없이 신속 정확하게 도면화하고, 팀의 프로젝트 일정을 안정적으로 뒷받침하는 믿음직한 러닝메이트가 되겠습니다.\n\n현장 감리와 협력업체 소통을 통해 도면이 실제 물리적 공간으로 치환되는 실무 현장의 감각을 부지런히 체득하고, 건축 법규와 소방 기준, 특화 결구 상세도를 능숙하게 다루는 테크니컬 스페셜리스트로 성장하겠습니다. 도면 위의 수치 하나에도 명확한 설계 근거를 제시할 수 있는 실력을 다지겠습니다.\n\n선배님들의 실무 노하우를 스펀지처럼 빠르게 흡수하여 팀의 작업 효율을 극대화하고, 신속한 3D 시각화 지원으로 클라이언트 미팅의 신뢰도를 높이겠습니다. 장기적으로는 공간의 감성과 기능성, 비즈니스 가치를 두루 아우르며, 클라이언트와 시공사 모두에게 두터운 신뢰를 얻는 귀사의 핵심 프로젝트 디렉터로 당당히 자리매김하겠습니다."
+    }
+  ]
+};
 
     const DEFAULT_PORTFOLIO_META = {
       applicantName: "김 민 재",
@@ -1762,13 +1801,13 @@
     };
 
     const DEFAULT_LANDING_DATA = {
-      heroBadge: "Junior Interior Architect & Spatial Designer Portfolio",
-      heroTitleLine1: "Logic in Design,",
-      heroTitleLine2: "Precision in Drafting.",
-      heroDesc: "신입 실내건축 디자이너 입사지원 포트폴리오입니다.\n공간 기획 논리부터 정밀 2D CAD 실시도면, 3D 실시간 렌더링 및 디테일로 완성한 엄선된 프로젝트 마스터피스를 확인하세요.",
-      projectSectionTitle: "Selected Masterpieces",
-      projectSectionBadge: "Core Works"
-    };
+  "heroBadge": "Junior Interior Architect & Spatial Designer Portfolio",
+  "heroTitleLine1": "Logic in Design,",
+  "heroTitleLine2": "Precision in Drafting.",
+  "heroDesc": "신입 실내건축 디자이너 입사지원 포트폴리오입니다.\n공간 기획 논리부터 정밀 2D CAD 실시도면, 3D 실시간 렌더링 및 디테일로 완성한 엄선된 프로젝트 마스터피스를 확인하세요.\n--------------------------------------------------------------------------------------------------\n본 사이트는 KD아카데미컴퓨터학원(의정부캠퍼스) AI 실내건축 디자인 수업 포트폴리오 샘플입니다.\n전담 교사 : 박정호\n",
+  "projectSectionTitle": "Selected Masterpieces",
+  "projectSectionBadge": "Core Works"
+};
 
     let RESUME_DATA = JSON.parse(JSON.stringify(DEFAULT_RESUME_DATA));
     let COVER_LETTER_DATA = JSON.parse(JSON.stringify(DEFAULT_COVER_LETTER_DATA));
@@ -1776,331 +1815,375 @@
     let LANDING_DATA = JSON.parse(JSON.stringify(DEFAULT_LANDING_DATA));
 
     let PROJECTS = [
+  {
+    "id": "proj-01-vmd",
+    "number": "PROJECT 01",
+    "categoryTag": "상업 · 뷰티 & 헤어살롱",
+    "categoryName": "상업 · 뷰티 & 헤어살롱",
+    "title": "프리미엄 헤어살롱 & 뷰티 라운지",
+    "designer": "김민재",
+    "year": "작업기간: 2일",
+    "area": "66.12㎡ (20py)",
+    "location": "프리미엄 헤어살롱 & 뷰티 공간 기획",
+    "tools": [
+      "AutoCAD",
+      "SketchUp",
+      "D5 Render",
+      "Gemini",
+      "ChatGPT"
+    ],
+    "concept": "본 이미지는 실내건축산업기사 실기문제를 기반으로 한 포트폴리오 샘플입니다.\n- 평면도(Auto CAD)\n- 천장도(Auto CAD)\n- 입면도(Auto CAD)\n- 투시도(SketchUp)\n- 실시간렌더링(D5RENDER)\n-AI렌더링 리터치(제미나이)",
+    "features": [
+      "리셉션-경대 시술대-샴푸실-조색실 기능별 조닝 및 고객/디자이너 1,500mm 분리 동선",
+      "고연색성(CRI 92+) 다운라이트 및 샴푸실 눈부심 차단 간접 코브 조명(3000K) 계획",
+      "내화학성 인조대리석 상판 및 실리콘 방수 가스켓 히든 결구 디테일"
+    ],
+    "materials": [
+      "Warm Beige Stucco",
+      "Natural Oak Wood",
+      "Low-Glare Cove LED",
+      "Chemical-resistant Marble"
+    ],
+    "renders": [
       {
-        id: "proj-01-vmd",
-        number: "PROJECT 01",
-        categoryTag: "COMMERCIAL & SALON",
-        categoryName: "상업 · 뷰티 & 헤어살롱",
-        title: "성수 프리미엄 헤어살롱 & 뷰티 라운지",
-        designer: "김민재",
-        year: "작업기간: 4주",
-        area: "215㎡ (65.04py)",
-        location: "프리미엄 헤어살롱 & 뷰티 공간 기획",
-        tools: ["AutoCAD", "SketchUp", "D5 Render", "Photoshop"],
-        concept: "고객의 편안한 휴식과 전문적인 헤어 서비스를 위한 1:1 프리미엄 살롱 공간 기획입니다. 진입부 리셉션 카운터와 아늑한 대기 라운지를 시작으로, 메인 경대(스타일링) 구역, 프라이빗 샴푸실, 약제 조색실 및 스태프 룸을 기능별로 명확하게 조닝 배치했습니다. 시술 고객의 원활한 이동 동선과 헤어 디자이너의 신속한 작업 동선을 철저히 이원화하여 상호 간섭 없는 쾌적성을 극대화했으며, 웜 베이지 스투코 벽체와 천연 오크 우드 질감, 은은한 백라이트 거울 및 눈부심 없는 간접 조명(3000K)을 조화시킨 미니멀 내추럴 스타일로 세련되고 따뜻한 힐링 무드를 완성했습니다.",
-        features: [
-          "리셉션-경대 시술대-샴푸실-조색실 기능별 조닝 및 고객/디자이너 1,500mm 분리 동선",
-          "고연색성(CRI 92+) 다운라이트 및 샴푸실 눈부심 차단 간접 코브 조명(3000K) 계획",
-          "내화학성 인조대리석 상판 및 실리콘 방수 가스켓 히든 결구 디테일"
-        ],
-        materials: ["Warm Beige Stucco", "Natural Oak Wood", "Low-Glare Cove LED", "Chemical-resistant Marble"],
-        renders: [
-          {
-            id: "r1",
-            title: "3D 하이퍼리얼 주간 메인 투시도",
-            desc: "살롱 전체의 공간감과 웜 베이지 톤앤매너, 정갈한 경대 레이아웃을 한눈에 담아낸 대표 메인 투시도입니다. 공간에 들어선 고객이 느낄 편안하고 세련된 미니멀 살롱 무드를 사실적으로 전달합니다.",
-            image: "assets/user_drawings/salon_render_01.png",
-            isCustom: true
-          },
-          {
-            id: "r2",
-            title: "3D 야간 조명 씬 (Night Ambience View)",
-            desc: "일몰 후 살롱 내부의 감성적인 조도 연출을 시각화한 씬입니다. 경대 거울의 백라이트 간접등과 샴푸실 코브 조명이 어둠 속에서 은은한 온기를 발산하며, 프라이빗하고 편안한 야간 힐링 살롱 무드를 자아냅니다.",
-            image: "assets/user_drawings/salon_render_02.png",
-            isCustom: true
-          }
-        ],
-        drawings: [
-          {
-            id: "floor",
-            key: "floor",
-            title: "01. 평면도 (Floor Plan)",
-            scale: "S = 1:50",
-            desc: "출입구의 리셉션 카운터와 대기 라운지를 시작으로, 메인 경대(스타일링 존), 프라이빗 샴푸실, 약제 조색실을 유기적으로 조닝 배치한 평면 계획입니다. 고객 이동 동선과 헤어 디자이너의 작업 동선이 서로 겹치지 않도록 통로 폭을 여유롭게 확보하여 쾌적한 살롱 환경을 구축했습니다.",
-            image: "assets/user_drawings/salon_floor_plan.png",
-            enabled: true,
-            isCustom: true,
-            isDefault: true
-          },
-          {
-            id: "ceiling",
-            key: "ceiling",
-            title: "02. 천장도 (Reflected Ceiling Plan)",
-            scale: "S = 1:50",
-            desc: "시술 경대 존에는 레일 조명 및 고연색성 매립형 다운라이트를 배치하고, 샴푸실은 고객 눈부심을 차단하기 위한 간접 라인 조명을 적용한 천장 설계입니다. 아늑한 살롱 무드 연출과 함께 정돈된 천장미를 완성했습니다.",
-            image: "assets/user_drawings/salon_ceiling_plan.png",
-            enabled: true,
-            isCustom: true,
-            isDefault: true
-          },
-          {
-            id: "elevation",
-            key: "elevation",
-            title: "03. 입면도 (Elevation Plan - Styling Zone)",
-            scale: "S = 1:30",
-            desc: "A 입면도는 전면 출입구 및 카운터 라인을 설계하였으며, B 입면도는 웜 베이지 벽면 위 아치형 백라이트 경대 거울과 스타일링 체어가 조화된 메인 경대 존의 수직 입면 마감을 시각화했습니다.",
-            image: "assets/user_drawings/salon_elevation_plan.png",
-            enabled: true,
-            isCustom: true,
-            isDefault: true
-          },
-          {
-            id: "detail",
-            key: "detail",
-            title: "04. 부분상세도 (Section Detail)",
-            scale: "S = 1:10",
-            desc: "샴푸실 하부 급배수 배관 매립 단면 및 경대 카운터 상판 방수 디테일을 정밀 축척으로 상세화한 도면입니다.",
-            image: "assets/cad/p1_detail.svg?v=6",
-            enabled: false,
-            isCustom: false,
-            isDefault: true
-          }
-        ]
+        "id": "r1",
+        "title": "3D 하이퍼리얼 주간 메인 투시도",
+        "desc": "살롱 전체의 공간감과 웜 베이지 톤앤매너, 정갈한 경대 레이아웃을 한눈에 담아낸 대표 메인 투시도입니다. 공간에 들어선 고객이 느낄 편안하고 세련된 미니멀 살롱 무드를 사실적으로 전달합니다.",
+        "image": "assets/user_drawings/salon_render_01.png",
+        "isCustom": true
       },
       {
-        id: "proj-02-residential",
-        number: "PROJECT 02",
-        categoryTag: "RESIDENTIAL ARCHITECTURE",
-        categoryName: "주거 공간 리노베이션",
-        title: "한남 하이엔드 테라스 레지던스 리노베이션",
-        designer: "김민재",
-        year: "작업기간: 5주",
-        area: "280㎡ (85py)",
-        location: "프리미엄 주거 기획",
-        tools: ["AutoCAD", "3ds Max", "V-Ray", "Photoshop"],
-        concept: "천연 대리석과 화이트 오크가 조화를 이루는 하이엔드 주거 공간. 외부 테라스의 자연 채광을 거실 깊숙이 유입시키는 개방형 LDK 레이아웃과 벽체 일체형 히든 수납 설계를 정밀 도면화했습니다.",
-        features: [
-          "이탈리아산 트래버틴 천연석 아일랜드 주방 및 히든 팬트리 플랜",
-          "마그네틱 트랙 조명과 라인 디퓨저를 반영한 정밀 천장도",
-          "호텔식 건식 바스룸 및 마스터 드레스룸 동선 최적화"
-        ],
-        materials: ["Travertine Stone", "European White Oak", "Brushed Bronze", "Low-Iron Glass"],
-        renders: [
-          {
-            id: "r1",
-            title: "3D 테라스 레지던스 LDK 메인 뷰",
-            desc: "천연 대리석과 화이트 오크 마감재의 질감 및 테라스 유입 자연 채광을 정밀 렌더링한 주간 투시도입니다.",
-            image: "assets/renders/residence_render_01.jpg",
-            isCustom: false
-          },
-          {
-            id: "r2",
-            title: "3D 마스터 키친 & 다이닝 상세 뷰",
-            desc: "이탈리아산 트래버틴 아일랜드와 우물천장 코브 라이팅(Cove Light)의 따뜻한 조도를 시뮬레이션한 씬입니다.",
-            image: "assets/renders/residence_render_02.jpg",
-            isCustom: false
-          }
-        ],
-        drawings: [
-          {
-            id: "floor",
-            key: "floor",
-            title: "01. 평면도 (Floor Plan)",
-            scale: "S = 1:50",
-            desc: "개방형 LDK(거실·식당·주방), 마스터 베드룸 및 호텔식 건식 욕실 동선 배치 계획",
-            image: "assets/cad/p2_floor.svg?v=6",
-            enabled: true,
-            isCustom: false,
-            isDefault: true
-          },
-          {
-            id: "ceiling",
-            key: "ceiling",
-            title: "02. 천장도 (Reflected Ceiling Plan)",
-            scale: "S = 1:50",
-            desc: "우물천장 간접 등박스(Cove Lighting), 슬림 라인 디퓨저, 마그네틱 매립 트랙 조명도",
-            image: "assets/cad/p2_ceiling.svg?v=6",
-            enabled: true,
-            isCustom: false,
-            isDefault: true
-          },
-          {
-            id: "elevation",
-            key: "elevation",
-            title: "03. 입면도 (Elevation Plan - Living & Kitchen)",
-            scale: "S = 1:30",
-            desc: "아트월 천연석 트래버틴 메지 라인 및 주방 키큰장 일체형 히든도어 수직 입면",
-            image: "assets/cad/p2_elevation.svg?v=6",
-            enabled: true,
-            isCustom: false,
-            isDefault: true
-          },
-          {
-            id: "detail",
-            key: "detail",
-            title: "04. 부분상세도 (Section Detail)",
-            scale: "S = 1:10",
-            desc: "바닥 마이너스 걸레받이 매립 몰딩 및 아일랜드 대리석 상판 45도 도메 접합 상세",
-            image: "assets/cad/p2_detail.svg?v=6",
-            enabled: true,
-            isCustom: false,
-            isDefault: true
-          }
-        ]
-      },
-      {
-        id: "proj-03-office",
-        number: "PROJECT 03",
-        categoryTag: "TECH OFFICE & WORKSPACE",
-        categoryName: "업무 공간 설계",
-        title: "판교 테크 AI 연구소 크리에이티브 오피스",
-        designer: "김민재",
-        year: "작업기간: 3주",
-        area: "560㎡ (170py)",
-        location: "애자일 워크스페이스",
-        tools: ["AutoCAD", "SketchUp", "D5 Render"],
-        concept: "몰입 업무와 유연한 협업이 공존하는 테크 기업의 애자일 오피스. 방음 펠트 루버와 가변형 모듈 데스크를 배치하고, 서카디언 스마트 조명을 계획하여 업무 피로도를 최소화했습니다.",
-        features: [
-          "흡음 계수(NRC) 0.85 이상의 음향 천장 루버 설계",
-          "화상 회의 전용 포커스 부스 및 오픈 타운홀 계단형 라운지",
-          "피난 동선 및 소방법 규정을 준수한 벽체 사양 명기"
-        ],
-        materials: ["Acoustic Felt Louver", "Birch Plywood", "Anodized Aluminum", "Anti-static Carpet"],
-        renders: [
-          {
-            id: "r1",
-            title: "3D 애자일 오피스 오픈 라운지 뷰",
-            desc: "흡음 루버 천장과 오픈 워크스페이스의 개방감 넘치는 체적감을 시각화한 메인 투시도입니다.",
-            image: "assets/renders/office_render_01.jpg",
-            isCustom: false
-          },
-          {
-            id: "r2",
-            title: "3D 포커스 폰부스 & 화상 회의실 투시도",
-            desc: "차음 스터드 벽체와 알루미늄 글라스 프레임을 정밀 레이트레이싱으로 시뮬레이션한 뷰입니다.",
-            image: "assets/renders/office_render_02.jpg",
-            isCustom: false
-          }
-        ],
-        drawings: [
-          {
-            id: "floor",
-            key: "floor",
-            title: "01. 평면도 (Floor Plan)",
-            scale: "S = 1:100",
-            desc: "오픈 워크스페이스, 화상 포커스 폰부스, 타운홀 라운지 및 피난 동선·소방법 구획 계획",
-            image: "assets/cad/p3_floor.svg?v=6",
-            enabled: true,
-            isCustom: false,
-            isDefault: true
-          },
-          {
-            id: "ceiling",
-            key: "ceiling",
-            title: "02. 천장도 (Reflected Ceiling Plan)",
-            scale: "S = 1:100",
-            desc: "흡음 펠트 루버 천장 모듈, 서카디언 리듬 스마트 LED 조명 및 스프링클러 헤드 배치도",
-            image: "assets/cad/p3_ceiling.svg?v=6",
-            enabled: true,
-            isCustom: false,
-            isDefault: true
-          },
-          {
-            id: "elevation",
-            key: "elevation",
-            title: "03. 입면도 (Elevation Plan - Focus Booth & Lounge)",
-            scale: "S = 1:50",
-            desc: "회의실 알루미늄 글라스 파티션 프레임 및 계단식 타운홀 라운지 입면도",
-            image: "assets/cad/p3_elevation.svg?v=6",
-            enabled: true,
-            isCustom: false,
-            isDefault: true
-          },
-          {
-            id: "detail",
-            key: "detail",
-            title: "04. 부분상세도 (Section Detail)",
-            scale: "S = 1:10",
-            desc: "천장 흡음 펠트 루버 고정 찬넬 브라켓 및 회의실 차음 스터드 벽체 단면 상세",
-            image: "assets/cad/p3_detail.svg?v=6",
-            enabled: true,
-            isCustom: false,
-            isDefault: true
-          }
-        ]
-      },
-      {
-        id: "proj-04-furniture",
-        number: "PROJECT 04",
-        categoryTag: "CUSTOM FURNITURE & OBJECT",
-        categoryName: "맞춤 가구 디자인",
-        title: "‘Curve & Shadow’ 건축적 라운지 체어 & 커피 테이블",
-        designer: "김민재",
-        year: "작업기간: 2주",
-        area: "W850 x D780 x H720 (mm)",
-        location: "가구 디테일 & 제작 도면",
-        tools: ["AutoCAD", "Rhino 3D", "3ds Max", "Keyshot"],
-        concept: "월넛 원목의 유기적인 곡선과 덴마크 부클레 패브릭의 따뜻한 촉감을 결합한 라운지 체어. 인체공학적 비례와 황동 매립 결구 디테일을 건축 가구 표준에 맞춰 정밀 도면화했습니다.",
-        features: [
-          "3차원 곡면 5축 CNC 가공 접합 디테일 및 결구 도면",
-          "고밀도 폼과 프리미엄 부클레 패브릭 마감 스펙",
-          "황동(Brass) 매립 힌지 및 오일 마감 사양서"
-        ],
-        materials: ["Solid Walnut", "Danish Bouclé Fabric", "Cast Brass Detail", "Natural Matte Oil"],
-        renders: [
-          {
-            id: "r1",
-            title: "3D 라운지 체어 & 커피 테이블 메인 뷰",
-            desc: "월넛 원목의 유기적인 곡선과 덴마크 부클레 패브릭의 따뜻한 촉감을 포토릴리스틱으로 렌더링한 제품 뷰입니다.",
-            image: "assets/renders/furniture_render_01.jpg",
-            isCustom: false
-          },
-          {
-            id: "r2",
-            title: "3D 결구 디테일 클로즈업 뷰",
-            desc: "황동 매립 힌지와 핑거 조인트 접합부의 미세 가공 정밀도를 표현한 클로즈업 컷입니다.",
-            image: "assets/renders/furniture_render_02.jpg",
-            isCustom: false
-          }
-        ],
-        drawings: [
-          {
-            id: "floor",
-            key: "floor",
-            title: "01. 평면도 (Top Plan)",
-            scale: "S = 1:10",
-            desc: "체어 및 테이블 상부 평면 투영도(Top Plan), 인체공학적 좌판 곡률 치수 계획",
-            image: "assets/cad/p4_floor.svg?v=6",
-            enabled: true,
-            isCustom: false,
-            isDefault: true
-          },
-          {
-            id: "ceiling",
-            key: "ceiling",
-            title: "02. 천장도 / 배면도 (Bottom / Structure Plan)",
-            scale: "S = 1:10",
-            desc: "가구 하부 보강 프레임 및 황동 결구 배치도 (하부 구조 평면도)",
-            image: "assets/cad/p4_ceiling.svg?v=6",
-            enabled: true,
-            isCustom: false,
-            isDefault: true
-          },
-          {
-            id: "elevation",
-            key: "elevation",
-            title: "03. 입면도 (Front & Side Elevation)",
-            scale: "S = 1:10",
-            desc: "전면도 및 측면도, 팔걸이 및 등받이 경사각, 지지대 수직 치수 계획",
-            image: "assets/cad/p4_elevation.svg?v=6",
-            enabled: true,
-            isCustom: false,
-            isDefault: true
-          },
-          {
-            id: "detail",
-            key: "detail",
-            title: "04. 부분상세도 (Section Detail)",
-            scale: "S = 1:5",
-            desc: "5축 CNC 핑거 조인트 원목 결구 및 황동(Brass) 매립 힌지 단면 상세",
-            image: "assets/cad/p4_detail.svg?v=6",
-            enabled: true,
-            isCustom: false,
-            isDefault: true
-          }
-        ]
+        "id": "r2",
+        "title": "3D 야간 조명 씬 (Night Ambience View)",
+        "desc": "일몰 후 살롱 내부의 감성적인 조도 연출을 시각화한 씬입니다. 경대 거울의 백라이트 간접등과 샴푸실 코브 조명이 어둠 속에서 은은한 온기를 발산하며, 프라이빗하고 편안한 야간 힐링 살롱 무드를 자아냅니다.",
+        "image": "assets/user_drawings/salon_render_02.png",
+        "isCustom": true
       }
-    ];
+    ],
+    "drawings": [
+      {
+        "id": "floor",
+        "key": "floor",
+        "title": "01. 평면도 (Floor Plan)",
+        "scale": "S = 1:50",
+        "desc": "출입구의 리셉션 카운터와 대기 라운지를 시작으로, 메인 경대(스타일링 존), 프라이빗 샴푸실, 약제 조색실을 유기적으로 조닝 배치한 평면 계획입니다. 고객 이동 동선과 헤어 디자이너의 작업 동선이 서로 겹치지 않도록 통로 폭을 여유롭게 확보하여 쾌적한 살롱 환경을 구축했습니다.",
+        "image": "assets/user_drawings/salon_floor_plan.png",
+        "enabled": true,
+        "isCustom": true,
+        "isDefault": true
+      },
+      {
+        "id": "ceiling",
+        "key": "ceiling",
+        "title": "02. 천장도 (Reflected Ceiling Plan)",
+        "scale": "S = 1:50",
+        "desc": "시술 경대 존에는 레일 조명 및 고연색성 매립형 다운라이트를 배치하고, 샴푸실은 고객 눈부심을 차단하기 위한 간접 라인 조명을 적용한 천장 설계입니다. 아늑한 살롱 무드 연출과 함께 정돈된 천장미를 완성했습니다.",
+        "image": "assets/user_drawings/salon_ceiling_plan.png",
+        "enabled": true,
+        "isCustom": true,
+        "isDefault": true
+      },
+      {
+        "id": "elevation",
+        "key": "elevation",
+        "title": "03. 입면도 (Elevation Plan - Styling Zone)",
+        "scale": "S = 1:30",
+        "desc": "A 입면도는 전면 출입구 및 카운터 라인을 설계하였으며, B 입면도는 웜 베이지 벽면 위 아치형 백라이트 경대 거울과 스타일링 체어가 조화된 메인 경대 존의 수직 입면 마감을 시각화했습니다.",
+        "image": "assets/user_drawings/salon_elevation_plan.png",
+        "enabled": true,
+        "isCustom": true,
+        "isDefault": true
+      },
+      {
+        "id": "detail",
+        "key": "detail",
+        "title": "04. 부분상세도 (Section Detail)",
+        "scale": "S = 1:10",
+        "desc": "샴푸실 하부 급배수 배관 매립 단면 및 경대 카운터 상판 방수 디테일을 정밀 축척으로 상세화한 도면입니다.",
+        "image": "assets/cad/p1_detail.svg?v=6",
+        "enabled": false,
+        "isCustom": false,
+        "isDefault": true
+      }
+    ],
+    "isCustom": true
+  },
+  {
+    "id": "proj-02-residential",
+    "number": "PROJECT 02",
+    "categoryTag": "주거 공간 리노베이션",
+    "categoryName": "주거 공간 리노베이션",
+    "title": "한남 하이엔드 테라스 레지던스 리노베이션",
+    "designer": "김민재",
+    "year": "작업기간: 5주",
+    "area": "280㎡ (85py)",
+    "location": "프리미엄 주거 기획",
+    "tools": [
+      "AutoCAD",
+      "3ds Max",
+      "V-Ray",
+      "Photoshop"
+    ],
+    "concept": "- 본 이미지는 ai를 활용한 자동완성 샘플입니다.\n\n천연 대리석과 화이트 오크가 조화를 이루는 하이엔드 주거 공간. 외부 테라스의 자연 채광을 거실 깊숙이 유입시키는 개방형 LDK 레이아웃과 벽체 일체형 히든 수납 설계를 정밀 도면화했습니다.",
+    "features": [
+      "이탈리아산 트래버틴 천연석 아일랜드 주방 및 히든 팬트리 플랜",
+      "마그네틱 트랙 조명과 라인 디퓨저를 반영한 정밀 천장도",
+      "호텔식 건식 바스룸 및 마스터 드레스룸 동선 최적화"
+    ],
+    "materials": [
+      "Travertine Stone",
+      "European White Oak",
+      "Brushed Bronze",
+      "Low-Iron Glass"
+    ],
+    "renders": [
+      {
+        "id": "r1",
+        "title": "3D 테라스 레지던스 LDK 메인 뷰",
+        "desc": "천연 대리석과 화이트 오크 마감재의 질감 및 테라스 유입 자연 채광을 정밀 렌더링한 주간 투시도입니다.",
+        "image": "assets/renders/residence_render_01.jpg",
+        "isCustom": false
+      },
+      {
+        "id": "r2",
+        "title": "3D 마스터 키친 & 다이닝 상세 뷰",
+        "desc": "이탈리아산 트래버틴 아일랜드와 우물천장 코브 라이팅(Cove Light)의 따뜻한 조도를 시뮬레이션한 씬입니다.",
+        "image": "assets/renders/residence_render_02.jpg",
+        "isCustom": false
+      }
+    ],
+    "drawings": [
+      {
+        "id": "floor",
+        "key": "floor",
+        "title": "01. 평면도 (Floor Plan)",
+        "scale": "S = 1:50",
+        "desc": "개방형 LDK(거실·식당·주방), 마스터 베드룸 및 호텔식 건식 욕실 동선 배치 계획",
+        "image": "assets/cad/p2_floor.svg?v=6",
+        "enabled": true,
+        "isCustom": false,
+        "isDefault": true
+      },
+      {
+        "id": "ceiling",
+        "key": "ceiling",
+        "title": "02. 천장도 (Reflected Ceiling Plan)",
+        "scale": "S = 1:50",
+        "desc": "우물천장 간접 등박스(Cove Lighting), 슬림 라인 디퓨저, 마그네틱 매립 트랙 조명도",
+        "image": "assets/cad/p2_ceiling.svg?v=6",
+        "enabled": true,
+        "isCustom": false,
+        "isDefault": true
+      },
+      {
+        "id": "elevation",
+        "key": "elevation",
+        "title": "03. 입면도 (Elevation Plan - Living & Kitchen)",
+        "scale": "S = 1:30",
+        "desc": "아트월 천연석 트래버틴 메지 라인 및 주방 키큰장 일체형 히든도어 수직 입면",
+        "image": "assets/cad/p2_elevation.svg?v=6",
+        "enabled": true,
+        "isCustom": false,
+        "isDefault": true
+      },
+      {
+        "id": "detail",
+        "key": "detail",
+        "title": "04. 부분상세도 (Section Detail)",
+        "scale": "S = 1:10",
+        "desc": "바닥 마이너스 걸레받이 매립 몰딩 및 아일랜드 대리석 상판 45도 도메 접합 상세",
+        "image": "assets/cad/p2_detail.svg?v=6",
+        "enabled": true,
+        "isCustom": false,
+        "isDefault": true
+      }
+    ],
+    "isCustom": true
+  },
+  {
+    "id": "proj-03-office",
+    "number": "PROJECT 03",
+    "categoryTag": "업무 공간 설계",
+    "categoryName": "업무 공간 설계",
+    "title": "테크 AI 연구소 크리에이티브 오피스",
+    "designer": "김민재",
+    "year": "작업기간: 3주",
+    "area": "560㎡ (170py)",
+    "location": "애자일 워크스페이스",
+    "tools": [
+      "AutoCAD",
+      "SketchUp",
+      "D5 Render"
+    ],
+    "concept": "- 본 이미지는 ai를 활용한 자동완성 샘플입니다.\n\n몰입 업무와 유연한 협업이 공존하는 테크 기업의 애자일 오피스. 방음 펠트 루버와 가변형 모듈 데스크를 배치하고, 서카디언 스마트 조명을 계획하여 업무 피로도를 최소화했습니다.",
+    "features": [
+      "흡음 계수(NRC) 0.85 이상의 음향 천장 루버 설계",
+      "화상 회의 전용 포커스 부스 및 오픈 타운홀 계단형 라운지",
+      "피난 동선 및 소방법 규정을 준수한 벽체 사양 명기"
+    ],
+    "materials": [
+      "Acoustic Felt Louver",
+      "Birch Plywood",
+      "Anodized Aluminum",
+      "Anti-static Carpet"
+    ],
+    "renders": [
+      {
+        "id": "r1",
+        "title": "3D 애자일 오피스 오픈 라운지 뷰",
+        "desc": "흡음 루버 천장과 오픈 워크스페이스의 개방감 넘치는 체적감을 시각화한 메인 투시도입니다.",
+        "image": "assets/renders/office_render_01.jpg",
+        "isCustom": false
+      },
+      {
+        "id": "r2",
+        "title": "3D 포커스 폰부스 & 화상 회의실 투시도",
+        "desc": "차음 스터드 벽체와 알루미늄 글라스 프레임을 정밀 레이트레이싱으로 시뮬레이션한 뷰입니다.",
+        "image": "assets/renders/office_render_02.jpg",
+        "isCustom": false
+      }
+    ],
+    "drawings": [
+      {
+        "id": "floor",
+        "key": "floor",
+        "title": "01. 평면도 (Floor Plan)",
+        "scale": "S = 1:100",
+        "desc": "오픈 워크스페이스, 화상 포커스 폰부스, 타운홀 라운지 및 피난 동선·소방법 구획 계획",
+        "image": "assets/cad/p3_floor.svg?v=6",
+        "enabled": true,
+        "isCustom": false,
+        "isDefault": true
+      },
+      {
+        "id": "ceiling",
+        "key": "ceiling",
+        "title": "02. 천장도 (Reflected Ceiling Plan)",
+        "scale": "S = 1:100",
+        "desc": "흡음 펠트 루버 천장 모듈, 서카디언 리듬 스마트 LED 조명 및 스프링클러 헤드 배치도",
+        "image": "assets/cad/p3_ceiling.svg?v=6",
+        "enabled": true,
+        "isCustom": false,
+        "isDefault": true
+      },
+      {
+        "id": "elevation",
+        "key": "elevation",
+        "title": "03. 입면도 (Elevation Plan - Focus Booth & Lounge)",
+        "scale": "S = 1:50",
+        "desc": "회의실 알루미늄 글라스 파티션 프레임 및 계단식 타운홀 라운지 입면도",
+        "image": "assets/cad/p3_elevation.svg?v=6",
+        "enabled": true,
+        "isCustom": false,
+        "isDefault": true
+      },
+      {
+        "id": "detail",
+        "key": "detail",
+        "title": "04. 부분상세도 (Section Detail)",
+        "scale": "S = 1:10",
+        "desc": "천장 흡음 펠트 루버 고정 찬넬 브라켓 및 회의실 차음 스터드 벽체 단면 상세",
+        "image": "assets/cad/p3_detail.svg?v=6",
+        "enabled": true,
+        "isCustom": false,
+        "isDefault": true
+      }
+    ],
+    "isCustom": true
+  },
+  {
+    "id": "proj-04-furniture",
+    "number": "PROJECT 04",
+    "categoryTag": "맞춤 가구 디자인",
+    "categoryName": "맞춤 가구 디자인",
+    "title": "‘Curve & Shadow’ 건축적 라운지 체어 & 커피 테이블",
+    "designer": "김민재",
+    "year": "작업기간: 2일",
+    "area": "W850 x D780 x H720 (mm)",
+    "location": "가구 디테일 & 제작 도면",
+    "tools": [
+      "AutoCAD",
+      "Rhino 3D",
+      "3ds Max",
+      "D5RENDER"
+    ],
+    "concept": "- 본 이미지는 ai를 활용한 자동완성 샘플입니다.\n\n월넛 원목의 유기적인 곡선과 덴마크 부클레 패브릭의 따뜻한 촉감을 결합한 라운지 체어. 인체공학적 비례와 황동 매립 결구 디테일을 건축 가구 표준에 맞춰 정밀 도면화했습니다.",
+    "features": [
+      "3차원 곡면 5축 CNC 가공 접합 디테일 및 결구 도면",
+      "고밀도 폼과 프리미엄 부클레 패브릭 마감 스펙",
+      "황동(Brass) 매립 힌지 및 오일 마감 사양서"
+    ],
+    "materials": [
+      "Solid Walnut",
+      "Danish Bouclé Fabric",
+      "Cast Brass Detail",
+      "Natural Matte Oil"
+    ],
+    "renders": [
+      {
+        "id": "r1",
+        "title": "3D 라운지 체어 & 커피 테이블 메인 뷰",
+        "desc": "월넛 원목의 유기적인 곡선과 덴마크 부클레 패브릭의 따뜻한 촉감을 포토릴리스틱으로 렌더링한 제품 뷰입니다.",
+        "image": "assets/renders/furniture_render_01.jpg",
+        "isCustom": false
+      },
+      {
+        "id": "r2",
+        "title": "3D 결구 디테일 클로즈업 뷰",
+        "desc": "황동 매립 힌지와 핑거 조인트 접합부의 미세 가공 정밀도를 표현한 클로즈업 컷입니다.",
+        "image": "assets/renders/furniture_render_02.jpg",
+        "isCustom": false
+      }
+    ],
+    "drawings": [
+      {
+        "id": "floor",
+        "key": "floor",
+        "title": "01. 평면도 (Top Plan)",
+        "scale": "S = 1:10",
+        "desc": "체어 및 테이블 상부 평면 투영도(Top Plan), 인체공학적 좌판 곡률 치수 계획",
+        "image": "assets/cad/p4_floor.svg?v=6",
+        "enabled": true,
+        "isCustom": false,
+        "isDefault": true
+      },
+      {
+        "id": "ceiling",
+        "key": "ceiling",
+        "title": "02. 천장도 / 배면도 (Bottom / Structure Plan)",
+        "scale": "S = 1:10",
+        "desc": "가구 하부 보강 프레임 및 황동 결구 배치도 (하부 구조 평면도)",
+        "image": "assets/cad/p4_ceiling.svg?v=6",
+        "enabled": true,
+        "isCustom": false,
+        "isDefault": true
+      },
+      {
+        "id": "elevation",
+        "key": "elevation",
+        "title": "03. 입면도 (Front & Side Elevation)",
+        "scale": "S = 1:10",
+        "desc": "전면도 및 측면도, 팔걸이 및 등받이 경사각, 지지대 수직 치수 계획",
+        "image": "assets/cad/p4_elevation.svg?v=6",
+        "enabled": true,
+        "isCustom": false,
+        "isDefault": true
+      },
+      {
+        "id": "detail",
+        "key": "detail",
+        "title": "04. 부분상세도 (Section Detail)",
+        "scale": "S = 1:5",
+        "desc": "5축 CNC 핑거 조인트 원목 결구 및 황동(Brass) 매립 힌지 단면 상세",
+        "image": "assets/cad/p4_detail.svg?v=6",
+        "enabled": true,
+        "isCustom": false,
+        "isDefault": true
+      }
+    ],
+    "isCustom": true
+  }
+];
 
     // 기본 제공 표준 샘플 도면/렌더 원본 복제본 (언제든지 복원 가능)
     const DEFAULT_PROJECTS = JSON.parse(JSON.stringify(PROJECTS));
