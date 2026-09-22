@@ -171,6 +171,13 @@
               <span>✏️ 이력서·자소서 편집</span>
             </button>
             <button 
+              onclick="exportCurrentWebsiteHTML()"
+              class="editor-only px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white border border-emerald-700 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 shadow-sm cursor-pointer"
+              title="현재까지 수정한 모든 내용이 영구 반영된 최신 index.html 파일을 다운로드합니다"
+            >
+              <span>💾 수정본 영구 저장</span>
+            </button>
+            <button 
               onclick="generatePDF('resume')"
               class="px-3.5 py-2 bg-white border border-stone-300 text-stone-900 text-xs font-semibold uppercase tracking-wider hover:border-stone-950 transition-all flex items-center gap-1.5 shadow-2xs cursor-pointer"
             >
@@ -7997,16 +8004,102 @@ ${sourceText || '(초안 없음. 해당 항목에 어울리는 최상의 실무 
       }, 3000);
     }
 
+    // ========================================================
+    // ⭐️ [방법 2: 현재 수정본 index.html 영구 내보내기/저장 엔진] ⭐️
+    // ========================================================
+    async function exportCurrentWebsiteHTML() {
+      try {
+        showModeToast(true, "⏳ <strong>수정본을 패키징하는 중입니다...</strong>");
+
+        // 1. 현재 배포된 원본 index.html 가져오기
+        let html = "";
+        try {
+          const targetUrl = window.location.pathname.endsWith('.html') ? window.location.pathname : './index.html';
+          const resp = await fetch(targetUrl, { cache: 'no-store' });
+          if (resp.ok) {
+            html = await resp.text();
+          }
+        } catch (e) {
+          console.warn("Fetch failed, trying fallback", e);
+        }
+
+        if (!html) {
+          alert("원본 파일을 읽어오지 못했습니다. 인터넷 연결 또는 로컬 환경을 확인해 주세요.");
+          return;
+        }
+
+        // 2. DEFAULT_RESUME_DATA 치환 (현재 메모리/로컬저장소 최신값 반영)
+        if (typeof RESUME_DATA !== 'undefined' && RESUME_DATA) {
+          const resumeJson = JSON.stringify(RESUME_DATA, null, 2);
+          html = html.replace(/const DEFAULT_RESUME_DATA\s*=\s*\{[\s\S]*?\n\s*\};/, `const DEFAULT_RESUME_DATA = ${resumeJson};`);
+        }
+
+        // 3. DEFAULT_COVER_LETTER_DATA 치환
+        if (typeof COVER_LETTER_DATA !== 'undefined' && COVER_LETTER_DATA) {
+          const coverJson = JSON.stringify(COVER_LETTER_DATA, null, 2);
+          html = html.replace(/const DEFAULT_COVER_LETTER_DATA\s*=\s*\{[\s\S]*?\n\s*\};/, `const DEFAULT_COVER_LETTER_DATA = ${coverJson};`);
+        }
+
+        // 4. DEFAULT_LANDING_DATA 치환
+        if (typeof LANDING_DATA !== 'undefined' && LANDING_DATA) {
+          const landingJson = JSON.stringify(LANDING_DATA, null, 2);
+          html = html.replace(/const DEFAULT_LANDING_DATA\s*=\s*\{[\s\S]*?\n\s*\};/, `const DEFAULT_LANDING_DATA = ${landingJson};`);
+        }
+
+        // 5. PROJECTS 치환 (순서, enabled 상태, 명칭 등 반영)
+        if (typeof PROJECTS !== 'undefined' && PROJECTS) {
+          const projectsJson = JSON.stringify(PROJECTS, null, 2);
+          html = html.replace(/let PROJECTS\s*=\s*\[[\s\S]*?\n\s*\];/, `let PROJECTS = ${projectsJson};`);
+        }
+
+        // 6. 브라우저에서 index.html 다운로드 트리거
+        const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+        const downloadUrl = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.download = 'index.html';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(downloadUrl);
+
+        // 7. 성공 모달 띄우기
+        const modal = document.getElementById('export-success-modal');
+        if (modal) {
+          modal.classList.remove('hidden');
+        } else {
+          alert("🎉 index.html 파일이 다운로드되었습니다!\nGitHub 업로드 페이지에 끌어다 놓으시면 면접관에게도 영구 반영됩니다.");
+        }
+      } catch (err) {
+        console.error("Export error:", err);
+        alert("수정본 저장 중 오류가 발생했습니다: " + err.message);
+      }
+    }
+
+    function closeExportSuccessModal() {
+      const modal = document.getElementById('export-success-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
     // 모드 초기화 실행
     initPortfolioMode();
   </script>
 
   <!-- ⭐️ [플로팅 관리자 바: 인증된 본인에게만 표시됨 (일반 방문자에게는 100% 숨김)] ⭐️ -->
-  <div id="portfolio-mode-toggle-btn" class="mode-floating-btn flex items-center gap-1">
+  <div id="portfolio-mode-toggle-btn" class="mode-floating-btn flex items-center gap-1 shadow-2xl">
+    <button 
+      type="button" 
+      onclick="exportCurrentWebsiteHTML()" 
+      class="flex items-center gap-1.5 px-3 py-1.5 rounded-l-full bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-bold border-t border-b border-l border-emerald-400 shadow-sm cursor-pointer transition-all"
+      title="현재 수정한 모든 내용이 영구 반영된 index.html 파일을 다운로드합니다"
+    >
+      <span>💾</span>
+      <span>수정본 저장</span>
+    </button>
     <button 
       type="button" 
       onclick="togglePortfolioMode()" 
-      class="flex items-center gap-1.5 px-3 py-1.5 rounded-l-full bg-stone-900/95 text-white hover:bg-stone-800 font-mono text-xs font-semibold border border-stone-700 shadow-xl cursor-pointer"
+      class="flex items-center gap-1.5 px-3 py-1.5 bg-stone-900/95 text-white hover:bg-stone-800 font-mono text-xs font-semibold border-t border-b border-stone-700 shadow-sm cursor-pointer transition-all"
       title="감상 모드와 편집 모드를 전환합니다"
     >
       <span id="mode-toggle-icon">✏️</span>
@@ -8016,11 +8109,60 @@ ${sourceText || '(초안 없음. 해당 항목에 어울리는 최상의 실무 
     <button 
       type="button" 
       onclick="logoutAdmin()" 
-      class="px-2.5 py-1.5 rounded-r-full bg-rose-600 hover:bg-rose-500 text-white font-mono text-[11px] font-bold border-t border-b border-r border-rose-400 shadow-xl cursor-pointer"
+      class="px-2.5 py-1.5 rounded-r-full bg-stone-800 hover:bg-rose-600 text-stone-300 hover:text-white font-mono text-[11px] font-bold border-t border-b border-r border-stone-600 shadow-sm cursor-pointer transition-all"
       title="관리자 모드를 완전히 종료하고 방문자 모드로 잠급니다"
     >
       <span>🔒 잠금</span>
     </button>
+  </div>
+
+  <!-- ⭐️ [수정본 영구 저장 완료 안내 모달] ⭐️ -->
+  <div id="export-success-modal" class="fixed inset-0 z-[99999] bg-stone-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white border-2 border-stone-900 max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center text-2xl shrink-0">
+          🎉
+        </div>
+        <div class="space-y-1">
+          <h3 class="text-lg sm:text-xl font-bold text-stone-950">
+            수정본이 <code class="text-emerald-700 font-mono">index.html</code> 파일로 다운로드되었습니다!
+          </h3>
+          <p class="text-xs text-stone-500 font-mono">
+            내가 수정한 이력서, 자기소개서, 대문 문구, 프로젝트 도면 설정이 100% 영구 반영되었습니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-stone-50 border border-stone-200 p-4 rounded space-y-2.5 text-xs text-stone-700 font-sans leading-relaxed">
+        <div class="font-bold text-stone-900 flex items-center gap-1.5">
+          <span>👉 [면접관에게 보이게 하는 마지막 10초]:</span>
+        </div>
+        <ol class="list-decimal pl-4 space-y-1.5">
+          <li>컴퓨터의 <strong>'다운로드'</strong> 폴더에서 방금 저장된 <code class="bg-stone-200 px-1 py-0.5 font-mono text-stone-900">index.html</code> 파일을 확인합니다.</li>
+          <li>아래 <strong>[GitHub 업로드 페이지 열기]</strong> 버튼을 누릅니다.</li>
+          <li>다운로드된 파일을 깃허브 브라우저 화면 안으로 <strong>끌어다 놓고(드래그)</strong> 맨 아래 <strong>[Commit changes]</strong>를 누르면 끝납니다!</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-end gap-2.5 pt-2 border-t border-stone-200">
+        <button 
+          type="button" 
+          onclick="closeExportSuccessModal()" 
+          class="w-full sm:w-auto px-5 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+        >
+          닫기
+        </button>
+        <a 
+          href="https://github.com/DM-kor-Park/KDportfolio/upload/main" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto px-5 py-2.5 bg-stone-950 hover:bg-stone-800 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md cursor-pointer transition-colors"
+        >
+          <span>🚀 GitHub 업로드 페이지 바로가기</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
   </div>
 </body>
 </html>
