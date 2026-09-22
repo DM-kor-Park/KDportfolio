@@ -66,6 +66,18 @@
     .mode-floating-btn:hover {
       transform: translateY(-2px) scale(1.02);
     }
+    @media (max-width: 640px) {
+      .mode-floating-btn {
+        bottom: 14px;
+        right: 14px;
+        padding: 5px 10px !important;
+        font-size: 10.5px !important;
+        opacity: 0.88;
+      }
+      .mode-floating-btn:active {
+        opacity: 1;
+      }
+    }
   </style>
 
   <!-- ⭐️ [인쇄 시 백지 0장 및 웹 요소 철통 방어 스타일] ⭐️ -->
@@ -2176,37 +2188,43 @@
               </div>
             ` : ''}
 
-            <div class="absolute top-4 left-4 z-10 flex items-center gap-2">
-              <span id="card-badge-${p.id}" class="px-3 py-1 text-xs font-mono font-semibold uppercase bg-stone-950/90 backdrop-blur-sm text-stone-100">
+            <!-- ⭐️ 모바일/PC 겹침 0% 철통 방어: 상단 정보 바 (좌: 프로젝트/분류, 우: 실평수 면적) ⭐️ -->
+            <div class="absolute top-3 left-3 right-3 z-10 flex items-center justify-between gap-2 pointer-events-none">
+              <span id="card-badge-${p.id}" class="px-2.5 py-1 text-[11px] sm:text-xs font-mono font-semibold uppercase bg-stone-950/90 backdrop-blur-md text-stone-100 shadow-md truncate max-w-[65%] pointer-events-auto">
                 ${p.number} · ${p.categoryName}
               </span>
-              ${p.isCustom ? '<span class="px-2.5 py-1 text-[11px] font-mono font-bold bg-emerald-600 text-white shadow-md">🟢 내 파일 반영됨</span>' : ''}
-            </div>
-            
-            <div class="absolute top-4 right-4 z-10 flex items-center gap-1.5">
-              ${rendersCount > 1 ? `
-                <span class="px-2.5 py-1 text-xs font-mono bg-stone-950/90 backdrop-blur-sm text-amber-300 border border-amber-500/40 font-bold shadow-sm">
-                  📷 렌더 ${rendersCount}컷
-                </span>
-              ` : ''}
-              <span id="card-area-${p.id}" class="px-3 py-1 text-xs font-mono bg-white/95 backdrop-blur-sm text-stone-900 font-medium">
+              <span id="card-area-${p.id}" class="px-2.5 py-1 text-[11px] sm:text-xs font-mono bg-white/95 backdrop-blur-md text-stone-900 font-bold shadow-md shrink-0 pointer-events-auto">
                 ${p.area}
               </span>
             </div>
+            
+            <!-- ⭐️ 모바일/PC 겹침 0% 철통 방어: 하단 정보 바 (좌: 내 파일 반영, 우: 렌더 컷수) ⭐️ -->
+            <div class="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between gap-2 pointer-events-none">
+              <div>
+                ${p.isCustom ? '<span class="px-2 py-0.5 text-[10px] sm:text-[11px] font-mono font-bold bg-emerald-600 text-white shadow-md pointer-events-auto">🟢 내 파일 반영</span>' : ''}
+              </div>
+              <div>
+                ${rendersCount > 1 ? `
+                  <span class="px-2 py-0.5 text-[10px] sm:text-xs font-mono bg-stone-950/90 backdrop-blur-md text-amber-300 border border-amber-500/40 font-bold shadow-sm pointer-events-auto">
+                    📷 렌더 ${rendersCount}컷
+                  </span>
+                ` : ''}
+              </div>
+            </div>
           </div>
 
-          <div class="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between space-y-6">
+          <div class="lg:col-span-5 p-5 sm:p-10 flex flex-col justify-between space-y-5 sm:space-y-6">
             <div class="space-y-4">
-              <div class="flex items-center justify-between text-xs font-mono text-stone-500 border-b border-stone-100 pb-2">
-                <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 bg-stone-900 text-white font-mono font-bold text-[11px] shadow-sm">
+              <div class="flex items-center justify-between flex-wrap gap-2 text-xs font-mono text-stone-500 border-b border-stone-100 pb-2">
+                <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                  <span class="px-2 py-0.5 bg-stone-900 text-white font-mono font-bold text-[11px] shadow-sm shrink-0">
                     순서 #0${idx + 1}
                   </span>
-                  <span class="text-xs font-mono text-stone-500 font-semibold">${p.number}</span>
+                  <span class="text-xs font-mono text-stone-500 font-semibold shrink-0">${p.number}</span>
                   <span class="text-stone-300">·</span>
-                  <span id="card-tag-${p.id}" class="text-stone-700 font-semibold">${p.categoryName}</span>
+                  <span id="card-tag-${p.id}" class="text-stone-700 font-semibold truncate max-w-[140px] sm:max-w-none">${p.categoryName}</span>
                 </div>
-                <span>${p.year}</span>
+                <span class="shrink-0 text-stone-500">${p.year}</span>
               </div>
 
               <!-- 프로젝트 관리 액션 툴바 (순서 변경, 명칭/스튜디오 수정, 포트폴리오 제외) -->
