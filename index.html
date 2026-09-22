@@ -398,86 +398,87 @@
   <div id="print-area" class="hidden"></div>
 
   <!-- Modal Container -->
-  <div id="modal-container" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-6">
-    <div class="bg-white w-full max-w-5xl max-h-[92vh] overflow-y-auto border border-stone-300 shadow-2xl flex flex-col" onclick="event.stopPropagation()">
-      <div class="sticky top-0 z-20 bg-white px-6 py-4 border-b border-stone-200 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <span id="modal-badge" class="px-2.5 py-0.5 text-xs font-mono bg-stone-900 text-white uppercase font-semibold">Category</span>
-          <span class="text-xs font-mono text-stone-500">도면 &amp; 렌더 상세 뷰어 (Render / CAD / Detail)</span>
+  <div id="modal-container" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-0 md:p-6">
+    <div class="bg-stone-950 md:bg-white w-full h-full md:h-auto md:max-h-[92vh] max-w-5xl md:border md:border-stone-300 shadow-2xl flex flex-col overflow-y-auto md:overflow-y-auto" onclick="event.stopPropagation()">
+      <div class="sticky top-0 z-20 bg-stone-900 md:bg-white px-4 py-3 md:px-6 md:py-4 border-b border-stone-800 md:border-stone-200 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-2.5 md:gap-3">
+          <span id="modal-badge" class="px-2.5 py-0.5 text-[11px] md:text-xs font-mono bg-white md:bg-stone-900 text-stone-950 md:text-white uppercase font-semibold">Category</span>
+          <span class="text-xs font-mono text-stone-400 md:text-stone-500 hidden sm:inline">도면 &amp; 렌더 상세 뷰어 (Render / CAD / Detail)</span>
+          <span id="modal-header-seq-mobile" class="text-xs font-mono text-stone-300 sm:hidden">1 / 5</span>
         </div>
-        <button onclick="closeModal()" class="text-stone-600 hover:text-stone-950 font-bold text-xs px-3 py-1.5 border border-stone-300 hover:border-stone-900 transition-colors">
+        <button onclick="closeModal()" class="text-stone-200 md:text-stone-600 hover:text-white md:hover:text-stone-950 font-bold text-xs px-3 py-1.5 border border-stone-700 md:border-stone-300 hover:border-white md:hover:border-stone-900 transition-colors bg-stone-800 md:bg-transparent cursor-pointer">
           ✕ 닫기 (ESC)
         </button>
       </div>
 
-      <div class="p-6 sm:p-8 space-y-6">
+      <div class="p-3 sm:p-8 space-y-4 sm:space-y-6 flex-1 flex flex-col justify-start">
         <div class="space-y-3">
           <!-- 메인 이미지 / 도면 뷰어 -->
-          <div class="relative aspect-[16/10] bg-stone-950 overflow-hidden shadow-inner flex items-center justify-center group">
-            <img id="modal-image" src="" alt="" class="w-full h-full object-cover transition-all duration-300" />
+          <div id="modal-image-wrapper" class="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/10] max-h-[62vh] md:max-h-none bg-stone-950 overflow-hidden shadow-inner flex items-center justify-center group shrink-0">
+            <img id="modal-image" src="" alt="" class="w-full h-full object-contain md:object-cover transition-all duration-300" />
             
-            <!-- 좌우 이전/다음 슬라이드 버튼 (3D 렌더 및 2D 도면 연속 이어서 보기 지원) -->
-            <button id="modal-btn-prev-render" onclick="navigateModalMedia(-1)" class="hidden absolute left-3 top-1/2 -translate-y-1/2 bg-black/75 hover:bg-black text-white p-2.5 rounded-full border border-white/40 transition-all z-20 shadow-lg cursor-pointer" title="이전 (← 키보드 화살표)">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+            <!-- 좌우 이전/다음 슬라이드 버튼 (모바일/PC 공통 지원) -->
+            <button id="modal-btn-prev-render" onclick="navigateModalMedia(-1)" class="hidden absolute left-2 md:left-3 top-1/2 -translate-y-1/2 bg-black/75 hover:bg-black text-white p-2.5 md:p-3 rounded-full border border-white/40 transition-all z-20 shadow-lg cursor-pointer" title="이전 (← 키보드 화살표)">
+              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
             </button>
-            <button id="modal-btn-next-render" onclick="navigateModalMedia(1)" class="hidden absolute right-3 top-1/2 -translate-y-1/2 bg-black/75 hover:bg-black text-white p-2.5 rounded-full border border-white/40 transition-all z-20 shadow-lg cursor-pointer" title="다음 (→ 키보드 화살표)">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            <button id="modal-btn-next-render" onclick="navigateModalMedia(1)" class="hidden absolute right-2 md:right-3 top-1/2 -translate-y-1/2 bg-black/75 hover:bg-black text-white p-2.5 md:p-3 rounded-full border border-white/40 transition-all z-20 shadow-lg cursor-pointer" title="다음 (→ 키보드 화살표)">
+              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
             </button>
 
-            <!-- 우측 하단 태그 -->
-            <div id="modal-image-tag" class="absolute bottom-4 right-4 bg-black/85 text-white text-xs px-3.5 py-1.5 font-mono border border-stone-700 flex items-center gap-2 z-10">
+            <!-- 우측 하단 태그 (노란색 군더더기 전면 제거, 모바일에서는 숨김) -->
+            <div id="modal-image-tag" class="hidden sm:flex absolute bottom-4 right-4 bg-black/85 text-stone-200 text-xs px-3.5 py-1.5 font-mono border border-stone-700 items-center gap-2 z-10">
               3D Render View
             </div>
           </div>
 
           <!-- ⭐️ [간결한 2D / 3D 전환 툴바 & 연속 순서 인디케이터] ⭐️ -->
-          <div class="flex items-center justify-between gap-3 border-b border-stone-200 pb-2.5 pt-1 flex-wrap">
+          <div class="flex items-center justify-between gap-2 border-b border-stone-800 md:border-stone-200 pb-2.5 pt-1 flex-wrap">
             <!-- 2D / 3D 간단 전환 버튼 세트 -->
-            <div class="flex items-center gap-1.5 p-1 bg-stone-100 border border-stone-300">
+            <div class="flex items-center gap-1.5 p-1 bg-stone-900 md:bg-stone-100 border border-stone-800 md:border-stone-300">
               <button 
                 id="modal-btn-type-3d" 
                 type="button"
                 onclick="jumpToMediaType('3d')" 
-                class="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold transition-all shadow-xs bg-stone-900 text-white cursor-pointer"
+                class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold transition-all shadow-xs bg-stone-800 md:bg-stone-900 text-white cursor-pointer"
                 title="3D 렌더 투시도 구역으로 이동"
               >
                 <span>🖼️ 3D</span>
-                <span id="modal-badge-count-3d" class="text-[10px] px-1.5 py-0.5 bg-stone-800 text-amber-300 font-semibold font-mono">2컷</span>
+                <span id="modal-badge-count-3d" class="text-[10px] px-1.5 py-0.5 bg-stone-700 md:bg-stone-800 text-stone-200 font-semibold font-mono">2컷</span>
               </button>
               <button 
                 id="modal-btn-type-2d" 
                 type="button"
                 onclick="jumpToMediaType('2d')" 
-                class="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold transition-all text-stone-700 hover:bg-stone-200 cursor-pointer"
+                class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold transition-all text-stone-400 md:text-stone-700 hover:bg-stone-800 md:hover:bg-stone-200 cursor-pointer"
                 title="2D CAD 실시도면 구역으로 이동"
               >
                 <span>📐 2D</span>
-                <span id="modal-badge-count-2d" class="text-[10px] px-1.5 py-0.5 bg-stone-200 text-stone-700 font-semibold font-mono">3종</span>
+                <span id="modal-badge-count-2d" class="text-[10px] px-1.5 py-0.5 bg-stone-800 md:bg-stone-200 text-stone-300 md:text-stone-700 font-semibold font-mono">3종</span>
               </button>
             </div>
 
             <!-- 연속 이어서 보기 순서 안내 & 이전/다음 빠른 이동 + 도면 관리 -->
             <div class="flex items-center gap-2">
-              <div class="flex items-center bg-white border border-stone-300 shadow-xs">
+              <div class="flex items-center bg-stone-900 md:bg-white border border-stone-800 md:border-stone-300 shadow-xs">
                 <button 
                   type="button"
                   onclick="navigateModalMedia(-1)" 
-                  class="px-2.5 py-1.5 hover:bg-stone-100 text-stone-700 hover:text-stone-950 transition-colors cursor-pointer flex items-center gap-1 text-xs font-mono font-semibold" 
+                  class="px-2.5 py-1.5 hover:bg-stone-800 md:hover:bg-stone-100 text-stone-300 md:text-stone-700 hover:text-white md:hover:text-stone-950 transition-colors cursor-pointer flex items-center gap-1 text-xs font-mono font-semibold" 
                   title="이전 컷으로 이동 (← 키보드 화살표)"
                 >
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
-                  <span>이전</span>
+                  <span class="hidden sm:inline">이전</span>
                 </button>
-                <span id="modal-media-sequence-badge" class="px-2.5 py-1.5 bg-stone-900 text-white text-[11px] font-mono font-bold border-x border-stone-800 whitespace-nowrap">
+                <span id="modal-media-sequence-badge" class="px-2.5 py-1.5 bg-black md:bg-stone-900 text-white text-[11px] font-mono font-bold border-x border-stone-800 whitespace-nowrap">
                   1 / 5 · 3D 메인
                 </span>
                 <button 
                   type="button"
                   onclick="navigateModalMedia(1)" 
-                  class="px-2.5 py-1.5 hover:bg-stone-100 text-stone-700 hover:text-stone-950 transition-colors cursor-pointer flex items-center gap-1 text-xs font-mono font-semibold" 
+                  class="px-2.5 py-1.5 hover:bg-stone-800 md:hover:bg-stone-100 text-stone-300 md:text-stone-700 hover:text-white md:hover:text-stone-950 transition-colors cursor-pointer flex items-center gap-1 text-xs font-mono font-semibold" 
                   title="다음 컷으로 이동 (→ 키보드 화살표)"
                 >
-                  <span>다음</span>
+                  <span class="hidden sm:inline">다음</span>
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                 </button>
               </div>
@@ -485,7 +486,7 @@
               <button 
                 type="button"
                 onclick="openUploadModal(currentActiveProject.id, 'drawings')" 
-                class="flex items-center gap-1 px-2.5 py-1.5 text-xs font-mono font-medium text-stone-700 hover:text-stone-950 bg-stone-100 hover:bg-stone-200 border border-stone-300 transition-colors"
+                class="editor-only flex items-center gap-1 px-2.5 py-1.5 text-xs font-mono font-medium text-stone-700 hover:text-stone-950 bg-stone-100 hover:bg-stone-200 border border-stone-300 transition-colors cursor-pointer"
                 title="도면을 추가하거나 필요 없는 도면을 제외(숨김)합니다"
               >
                 <span>⚙️ 도면 추가/제외</span>
@@ -494,17 +495,17 @@
           </div>
 
           <!-- ⭐️ [이미지 밑에서 골라서 볼 수 있는 3D & 2D 통합 썸네일 스트립] ⭐️ -->
-          <div id="modal-unified-thumbnails" class="flex items-center gap-2 overflow-x-auto pb-1.5 pt-0.5 border-b border-stone-200 scrollbar-thin">
+          <div id="modal-unified-thumbnails" class="flex items-center gap-2 overflow-x-auto pb-1.5 pt-0.5 border-b border-stone-800 md:border-stone-200 scrollbar-thin">
             <!-- JS 동적 생성: 3D 렌더 + 활성 2D 도면 전체 목록 -->
           </div>
 
           <!-- ⭐️ [현재 선택된 3D/2D 실무 해설 및 스케일 바 & 즉시 교체/관리 액션 버튼] ⭐️ -->
-          <div id="modal-drawing-info-bar" class="bg-stone-100 p-3 border border-stone-200 text-xs font-mono flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <div class="flex items-start gap-3 flex-1">
-              <span id="modal-drawing-scale-badge" class="px-2 py-0.5 bg-amber-400 text-stone-950 font-bold text-[11px] shrink-0">⭐ 3D MAIN</span>
-              <div class="flex-1">
-                <span id="modal-drawing-name" class="font-bold text-stone-900 block mb-0.5">3D 하이퍼리얼 렌더 투시도</span>
-                <p id="modal-drawing-desc" class="text-stone-600 text-[11.5px] font-sans font-light">공간의 마감재 질감과 조명 연출을 실시간 레이트레이싱 기법으로 시각화한 메인 투시도입니다.</p>
+          <div id="modal-drawing-info-bar" class="bg-stone-900 md:bg-stone-100 p-2.5 sm:p-3 border border-stone-800 md:border-stone-200 text-xs font-mono flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-3">
+            <div class="flex items-start gap-2.5 sm:gap-3 flex-1 min-w-0">
+              <span id="modal-drawing-scale-badge" class="px-2 py-0.5 bg-stone-800 md:bg-stone-900 text-white font-mono font-bold text-[10.5px] sm:text-[11px] shrink-0">3D PERSPECTIVE</span>
+              <div class="flex-1 min-w-0">
+                <span id="modal-drawing-name" class="font-bold text-stone-100 md:text-stone-900 block mb-0.5 truncate sm:overflow-visible">3D 하이퍼리얼 렌더 투시도</span>
+                <p id="modal-drawing-desc" class="text-stone-400 md:text-stone-600 text-[11px] sm:text-[11.5px] font-sans font-light line-clamp-2 sm:line-clamp-none">공간의 마감재 질감과 조명 연출을 실시간 레이트레이싱 기법으로 시각화한 메인 투시도입니다.</p>
               </div>
             </div>
 
@@ -514,7 +515,7 @@
                 id="modal-btn-set-primary"
                 type="button"
                 onclick="setPrimaryFromViewer()"
-                class="hidden px-3 py-1.5 bg-amber-400 hover:bg-amber-300 text-stone-950 font-mono font-bold text-xs items-center gap-1.5 shadow-sm transition-colors border border-amber-500 cursor-pointer"
+                class="hidden px-2.5 py-1.5 bg-stone-800 hover:bg-stone-700 text-stone-200 font-mono font-bold text-xs items-center gap-1.5 shadow-sm transition-colors border border-stone-600 cursor-pointer"
                 title="현재 보고 있는 3D 렌더를 이 프로젝트의 대표 메인 썸네일로 지정합니다"
               >
                 <span>⭐ 대표 썸네일로 지정</span>
@@ -552,7 +553,7 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4 border-t border-stone-200">
+        <div class="hidden md:grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4 border-t border-stone-200">
           <div class="lg:col-span-8 space-y-5">
             <div>
               <h2 id="modal-title" class="text-2xl sm:text-3xl font-bold tracking-tight text-stone-950 font-display break-keep">Project Title</h2>
@@ -2272,10 +2273,10 @@
             <img
               src="${thumb}"
               alt="${p.title}"
-              class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:opacity-30 group-hover:scale-103"
+              class="w-full h-full object-cover transition-all duration-700 ease-out sm:group-hover:opacity-30 sm:group-hover:scale-103"
             />
             ${hoverDrawing ? `
-              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-white flex items-center justify-center p-2 border-2 border-stone-900 shadow-inner">
+              <div class="hidden sm:flex absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-white items-center justify-center p-2 border-2 border-stone-900 shadow-inner">
                 <img 
                   src="${hoverDrawing.image}" 
                   alt="도면 투과 미리보기"
@@ -3879,25 +3880,25 @@
         currentActiveView = 'render';
         currentActiveRenderIndex = item.renderIndex;
         if (btn3d) {
-          btn3d.className = "flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold transition-all shadow-xs bg-stone-900 text-white cursor-pointer";
-          if (badge3d) badge3d.className = "text-[10px] px-1.5 py-0.5 bg-stone-800 text-amber-300 font-semibold font-mono";
+          btn3d.className = "flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold transition-all shadow-xs bg-stone-800 md:bg-stone-900 text-white cursor-pointer";
+          if (badge3d) badge3d.className = "text-[10px] px-1.5 py-0.5 bg-stone-700 md:bg-stone-800 text-stone-200 font-semibold font-mono";
         }
         if (btn2d) {
           btn2d.className = activeDrawingsCount === 0
-            ? "flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold transition-all text-stone-400 opacity-40 cursor-not-allowed"
-            : "flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold transition-all text-stone-700 hover:bg-stone-200 cursor-pointer";
-          if (badge2d) badge2d.className = "text-[10px] px-1.5 py-0.5 bg-stone-200 text-stone-700 font-semibold font-mono";
+            ? "flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold transition-all text-stone-500 opacity-40 cursor-not-allowed"
+            : "flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold transition-all text-stone-400 md:text-stone-700 hover:bg-stone-800 md:hover:bg-stone-200 cursor-pointer";
+          if (badge2d) badge2d.className = "text-[10px] px-1.5 py-0.5 bg-stone-800 md:bg-stone-200 text-stone-300 md:text-stone-700 font-semibold font-mono";
           btn2d.title = activeDrawingsCount === 0 ? "포함된 2D 도면이 없습니다 (모두 제외됨)" : "2D CAD 실시도면 구역으로 이동";
         }
       } else {
         currentActiveView = item.id;
         if (btn3d) {
-          btn3d.className = "flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold transition-all text-stone-700 hover:bg-stone-200 cursor-pointer";
-          if (badge3d) badge3d.className = "text-[10px] px-1.5 py-0.5 bg-stone-200 text-stone-700 font-semibold font-mono";
+          btn3d.className = "flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold transition-all text-stone-400 md:text-stone-700 hover:bg-stone-800 md:hover:bg-stone-200 cursor-pointer";
+          if (badge3d) badge3d.className = "text-[10px] px-1.5 py-0.5 bg-stone-800 md:bg-stone-200 text-stone-300 md:text-stone-700 font-semibold font-mono";
         }
         if (btn2d) {
-          btn2d.className = "flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold transition-all shadow-xs bg-stone-900 text-white cursor-pointer";
-          if (badge2d) badge2d.className = "text-[10px] px-1.5 py-0.5 bg-stone-800 text-cyan-300 font-semibold font-mono";
+          btn2d.className = "flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold transition-all shadow-xs bg-stone-800 md:bg-stone-900 text-white cursor-pointer";
+          if (badge2d) badge2d.className = "text-[10px] px-1.5 py-0.5 bg-stone-700 md:bg-stone-800 text-stone-200 font-semibold font-mono";
           btn2d.title = "2D CAD 실시도면 구역 (현재 선택됨)";
         }
       }
@@ -3908,6 +3909,12 @@
           ? (item.isPrimary ? '3D 메인' : `3D #${item.renderIndex + 1}`)
           : `${item.icon || '📐'} 2D ${item.title.split('(')[0].trim().replace(/^\d+\.\s*/, '')}`;
         seqBadge.innerText = `${currentActiveMediaIndex + 1} / ${mediaList.length} · ${shortName}`;
+      }
+
+      // 2-1. 모바일 헤더 순서 카운터 동기화
+      const seqMobile = document.getElementById('modal-header-seq-mobile');
+      if (seqMobile) {
+        seqMobile.innerText = `${currentActiveMediaIndex + 1} / ${mediaList.length}`;
       }
 
       // 3. 이전/다음 버튼 제어 (미디어가 2개 이상이면 항상 활성화되어 연속 순환)
@@ -3956,25 +3963,24 @@
       const applyViewData = () => {
         imgEl.src = item.image;
         if (item.mediaType === '3d') {
-          imgEl.className = "w-full h-full object-cover";
-          if (item.isPrimary) {
-            tagEl.innerHTML = `<span>🖼️ 3D Render Perspective (${item.renderIndex + 1}/${rendersCount})</span> <span class="bg-amber-400 text-stone-950 font-mono font-bold text-[10px] px-1.5 py-0.5 shadow-sm">⭐ 대표 메인 썸네일</span>`;
+          imgEl.className = "w-full h-full object-contain md:object-cover";
+          // ⭐️ 노란색 대표 썸네일 박스 전면 제거 (오직 감상용 단정한 모노크롬 텍스트만 유지) ⭐️
+          if (isEditorMode && !item.isPrimary) {
+            tagEl.innerHTML = `<span>🖼️ 3D Perspective (${item.renderIndex + 1}/${rendersCount})</span> <button type="button" onclick="setPrimaryFromViewer()" class="bg-stone-800 hover:bg-stone-700 text-stone-200 border border-stone-600 font-mono text-[10px] px-2 py-0.5 shadow-sm transition-all cursor-pointer flex items-center gap-1" title="이 렌더를 대표 메인 썸네일로 지정">대표로 지정</button>`;
           } else {
-            tagEl.innerHTML = `<span>🖼️ 3D Render Perspective (${item.renderIndex + 1}/${rendersCount})</span> <button type="button" onclick="setPrimaryFromViewer()" class="bg-amber-400 hover:bg-amber-300 text-stone-950 font-mono font-bold text-[10px] px-2 py-0.5 shadow-sm transition-transform active:scale-95 cursor-pointer flex items-center gap-1" title="이 렌더를 대표 메인 썸네일로 지정">⭐ 대표로 지정</button>`;
+            tagEl.innerHTML = `<span>🖼️ 3D Perspective (${item.renderIndex + 1}/${rendersCount})</span>`;
           }
-          tagEl.className = "absolute bottom-4 right-4 bg-black/85 text-white text-xs px-3.5 py-1.5 font-mono border border-stone-700 flex items-center gap-2 z-10";
+          tagEl.className = "hidden sm:flex absolute bottom-4 right-4 bg-black/85 text-stone-200 text-xs px-3.5 py-1.5 font-mono border border-stone-700 items-center gap-2 z-10";
 
-          scaleBadge.innerText = item.scale;
-          scaleBadge.className = item.isPrimary 
-            ? "px-2 py-0.5 bg-amber-400 text-stone-950 font-bold text-[11px] shrink-0" 
-            : "px-2 py-0.5 bg-stone-900 text-white font-bold text-[11px] shrink-0";
+          scaleBadge.innerText = (item.scale === '⭐ 3D MAIN' || item.scale === '3D MAIN') ? '3D PERSPECTIVE' : item.scale;
+          scaleBadge.className = "px-2 py-0.5 bg-stone-800 md:bg-stone-900 text-white font-mono font-bold text-[10.5px] sm:text-[11px] shrink-0";
         } else {
           imgEl.className = "w-full h-full object-contain bg-white p-2";
           tagEl.innerHTML = `<span>📐 한국 실내건축 국가기술표준 도면 (${item.drawingIndex + 1}/${activeDrawingsCount}) · ${item.title}</span>`;
-          tagEl.className = "absolute bottom-4 right-4 bg-stone-900 text-white text-xs px-3.5 py-1.5 font-mono border border-stone-700 shadow-md font-bold z-10 flex items-center gap-2";
+          tagEl.className = "hidden sm:flex absolute bottom-4 right-4 bg-stone-900 text-white text-xs px-3.5 py-1.5 font-mono border border-stone-700 shadow-md font-bold z-10 items-center gap-2";
 
           scaleBadge.innerText = item.scale;
-          scaleBadge.className = "px-2 py-0.5 bg-stone-900 text-white border border-stone-800 font-bold text-[11px] shrink-0";
+          scaleBadge.className = "px-2 py-0.5 bg-stone-800 md:bg-stone-900 text-white font-mono font-bold text-[10.5px] sm:text-[11px] shrink-0";
         }
 
         nameEl.innerText = item.title;
@@ -4062,11 +4068,10 @@
               type="button"
               onclick="switchModalMediaByIndex(${idx})"
               id="thumb-media-${idx}"
-              class="shrink-0 w-20 sm:w-24 h-14 sm:h-16 border-2 transition-all overflow-hidden relative cursor-pointer ${isActive ? 'border-amber-500 ring-2 ring-amber-500/50 shadow-md scale-102 z-10' : 'border-stone-300 opacity-60 hover:opacity-100'}"
-              title="${item.title}${item.isPrimary ? ' (⭐ 대표 썸네일)' : ''}"
+              class="shrink-0 w-20 sm:w-24 h-14 sm:h-16 border-2 transition-all overflow-hidden relative cursor-pointer ${isActive ? 'border-white md:border-stone-900 ring-2 ring-white/60 md:ring-stone-900/30 shadow-md scale-102 z-10' : 'border-stone-700 md:border-stone-300 opacity-60 hover:opacity-100'}"
+              title="${item.title}"
             >
               <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover" />
-              ${item.isPrimary ? '<span class="absolute top-0 left-0 bg-amber-400 text-stone-950 font-mono text-[9px] px-1 font-bold shadow-xs">⭐ 대표</span>' : ''}
               <span class="absolute bottom-0 right-0 bg-stone-950/85 text-white font-mono text-[9px] px-1 font-bold">3D #${item.renderIndex + 1}</span>
             </button>
           `;
@@ -4077,7 +4082,7 @@
               type="button"
               onclick="switchModalMediaByIndex(${idx})"
               id="thumb-media-${idx}"
-              class="shrink-0 w-20 sm:w-24 h-14 sm:h-16 border-2 transition-all overflow-hidden relative bg-white flex flex-col justify-between p-1 cursor-pointer ${isActive ? 'border-amber-500 ring-2 ring-amber-500/50 shadow-md scale-102 z-10' : 'border-stone-300 opacity-60 hover:opacity-100'}"
+              class="shrink-0 w-20 sm:w-24 h-14 sm:h-16 border-2 transition-all overflow-hidden relative bg-white flex flex-col justify-between p-1 cursor-pointer ${isActive ? 'border-white md:border-stone-900 ring-2 ring-white/60 md:ring-stone-900/30 shadow-md scale-102 z-10' : 'border-stone-700 md:border-stone-300 opacity-60 hover:opacity-100'}"
               title="${item.title} (2D 도면)"
             >
               <div class="w-full h-7 bg-white flex items-center justify-center overflow-hidden">
@@ -4086,7 +4091,7 @@
               <div class="text-[9px] font-mono truncate text-stone-800 font-bold text-center border-t border-stone-100 pt-0.5">
                 ${item.icon || '📐'} ${shortTitle}
               </div>
-              <span class="absolute top-0.5 right-0.5 bg-stone-900 text-cyan-300 font-mono text-[8px] px-1 font-bold">2D</span>
+              <span class="absolute top-0.5 right-0.5 bg-stone-900 text-stone-200 font-mono text-[8px] px-1 font-bold">2D</span>
             </button>
           `;
         }
@@ -4152,23 +4157,25 @@
     // ⭐️ [현재 열람 중인 2D 도면 즉시 제외(미리보기 숨김) 처리 함수] ⭐️
     async function excludeCurrentDrawing() {
       if (!currentActiveProject) return;
-      const mediaList = getProjectActiveMedia(currentActiveProject);
+      const p = currentActiveProject;
+      const mediaList = getProjectActiveMedia(p);
       const currentItem = mediaList[currentActiveMediaIndex];
       if (!currentItem || currentItem.mediaType !== '2d') return;
 
-      const d = currentActiveProject.drawings.find(item => item.id === currentItem.id);
-      if (!d) return;
+      const drawingId = currentItem.id;
+      const targetDrawing = (p.drawings || []).find(d => d.id === drawingId);
+      if (!targetDrawing) return;
 
-      d.enabled = false;
-      await saveProjectCustomData(currentActiveProject.id);
+      if (!confirm(`'${targetDrawing.title}' 도면을 포트폴리오에서 제외(숨김)하시겠습니까?\n(나중에 언제든 [도면 추가/제외]에서 다시 켤 수 있습니다)`)) {
+        return;
+      }
 
+      targetDrawing.enabled = false;
+      await saveCustomData('drawings', p.id, p.drawings);
       renderProjects();
-      renderUploadModalContents(currentActiveProject.id);
+      showUploadToast(`🚫 '${targetDrawing.title}' 도면이 제외되었습니다.`);
 
-      showUploadToast(`🚫 '${d.title}'이(가) 미리보기 및 포트폴리오에서 제외(숨김)되었습니다.`);
-
-      // 제외 후 다음 활성 미디어로 자동 이동
-      const updatedMedia = getProjectActiveMedia(currentActiveProject);
+      const updatedMedia = getProjectActiveMedia(p);
       if (updatedMedia.length > 0) {
         const nextIdx = Math.min(currentActiveMediaIndex, updatedMedia.length - 1);
         switchModalMediaByIndex(nextIdx, 0);
@@ -4183,6 +4190,35 @@
       modalEl.classList.remove('flex');
       document.body.style.overflow = 'unset';
     }
+
+    // ⭐️ [모바일 화면 터치 좌우 스와이프(Swipe)로 미디어 넘기기 제스처] ⭐️
+    (function initModalSwipe() {
+      let touchStartX = 0;
+      let touchStartY = 0;
+      const modalWrapper = document.getElementById('modal-container');
+      if (modalWrapper) {
+        modalWrapper.addEventListener('touchstart', (e) => {
+          if (e.touches.length === 1) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+          }
+        }, { passive: true });
+
+        modalWrapper.addEventListener('touchend', (e) => {
+          if (e.changedTouches.length === 1) {
+            const diffX = e.changedTouches[0].clientX - touchStartX;
+            const diffY = e.changedTouches[0].clientY - touchStartY;
+            if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY) * 1.3) {
+              if (diffX < 0) {
+                navigateModalMedia(1); // 왼쪽으로 넘기면 다음
+              } else {
+                navigateModalMedia(-1); // 오른쪽으로 넘기면 이전
+              }
+            }
+          }
+        }, { passive: true });
+      }
+    })();
 
     // ========================================================
     // ⭐️ [자율 구성 업로드 스튜디오 제어 (도면 추가/제외 & 다중 렌더)] ⭐️
@@ -7924,7 +7960,7 @@ ${sourceText || '(초안 없음. 해당 항목에 어울리는 최상의 실무 
     // ========================================================
     // ⭐️ [보안 관리자 인증 & 본인 전용 편집 모드 시스템] ⭐️
     // ========================================================
-    const ADMIN_SECRET_PIN = "1004"; // 본인 전용 비밀번호
+    const ADMIN_SECRET_PIN = "1234"; // 기본 관리자 비밀번호 (학생 배포용 표준 기본값)
 
     let isEditorMode = false;
     let isAdminAuthorized = false;
@@ -7933,8 +7969,8 @@ ${sourceText || '(초안 없음. 해당 항목에 어울리는 최상의 실무 
       const params = new URLSearchParams(window.location.search);
       const adminParam = params.get('admin') || params.get('edit') || params.get('key');
 
-      // 1. 비밀 URL 접속 확인 (예: ?admin=1004 또는 ?admin=kd1004)
-      if (adminParam === ADMIN_SECRET_PIN || adminParam === 'kd1004' || adminParam === 'master') {
+      // 1. 비밀 URL 접속 확인 (예: ?admin=1234 또는 ?admin=kd1234)
+      if (adminParam === ADMIN_SECRET_PIN || adminParam === 'kd1234' || adminParam === 'master') {
         localStorage.setItem('kd_admin_auth', 'true');
         localStorage.setItem('kd_portfolio_mode', 'edit');
         // 주소창에서 파라미터 흔적을 지워 다른 사람에게 노출 방지
@@ -7967,7 +8003,7 @@ ${sourceText || '(초안 없음. 해당 항목에 어울리는 최상의 실무 
       const entered = prompt("🔑 [KD 포트폴리오 관리자 인증]\n본인(작성자) 전용 비밀번호를 입력하세요:");
       if (entered === null) return;
 
-      if (entered.trim() === ADMIN_SECRET_PIN || entered.trim() === "kd1004") {
+      if (entered.trim() === ADMIN_SECRET_PIN || entered.trim() === "kd1234") {
         localStorage.setItem('kd_admin_auth', 'true');
         localStorage.setItem('kd_portfolio_mode', 'edit');
         isAdminAuthorized = true;
