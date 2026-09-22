@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 880" width="1300" height="880" style="background:#FFFFFF;">
+  <defs>
+    <!-- 800x800 포세린 타일 그리드 (약 32px) -->
+    <pattern id="tile-grid-800" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 600x600 바닥 타일 그리드 (약 24px) -->
+    <pattern id="tile-grid-600" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 300x300 테라조 타일 그리드 (약 14px) -->
+    <pattern id="tile-grid-300" width="14" height="14" patternUnits="userSpaceOnUse">
+      <rect width="14" height="14" fill="none" stroke="#E5E7EB" stroke-width="0.4" />
+    </pattern>
+    <!-- 원목 마루 / 헤링본 패턴 -->
+    <pattern id="wood-herringbone" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 0 L10 10 L0 20 M10 0 L20 10 L10 20" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 단면 콘크리트 해치 -->
+    <pattern id="concrete-hatch" width="8" height="8" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="8" x2="8" y2="0" stroke="#9CA3AF" stroke-width="0.5" />
+    </pattern>
+  </defs>
+  
+  <style>
+    /* CAD 오토캐드 표준 폰트 (영문/숫자: ROMANS, 한글: 모던 고딕) */
+    .cad-kr { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 11px; fill: #000000; }
+    .cad-kr-bold { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 11px; font-weight: bold; fill: #000000; }
+    .cad-kr-sm { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 9.5px; fill: #000000; }
+    
+    /* 텍스트 뒤 선 겹침 방지 (White Halo Masking) */
+    .cad-romans { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 11px; 
+      font-weight: 600; 
+      fill: #000000; 
+      letter-spacing: 0.6px; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 3.5px; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .cad-romans-bold { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 12px; 
+      font-weight: 700; 
+      fill: #000000; 
+      letter-spacing: 0.8px; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 4px; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .cad-romans-sm { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 9.5px; 
+      font-weight: 600; 
+      fill: #000000; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 3px; 
+    }
+    
+    /* 도면 타이틀 표준 */
+    .cad-title-kr { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: bold; letter-spacing: 10px; fill: #000000; }
+    .cad-title-scale { font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; font-size: 12px; font-weight: 700; fill: #000000; }
+    .cad-tag-text { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 9.5px; fill: #000000; }
+  </style>
+
+    <!-- 주방 아일랜드 트래버틴 빗각접합 및 언더조명 상세도 (S=1:10) -->
+    <g transform="translate(120, 80)">
+      <rect x="100" y="520" width="800" height="120" fill="url(#concrete-hatch)" stroke="#000000" stroke-width="2.2" />
+      <rect x="100" y="490" width="800" height="30" fill="#E5E7EB" stroke="#000000" stroke-width="1.2" />
+
+      <!-- 아일랜드 대리석 상판 (20T 천연 트래버틴 45도 연귀 맞춤) -->
+      <polygon points="250,180 650,180 650,210 630,210 630,490 270,490 270,210 250,210" fill="#F3F4F6" stroke="#000000" stroke-width="2.2" />
+      <!-- 45도 연귀접합선 (Miter Joint) -->
+      <line x1="250" y1="180" x2="270" y2="210" stroke-width="1.5" />
+      <line x1="650" y1="180" x2="630" y2="210" stroke-width="1.5" />
+
+      <!-- 내부 보강 스틸 각파이프 프레임 (40x40x2.3T) -->
+      <rect x="280" y="220" width="340" height="260" fill="none" stroke="#000000" stroke-width="1.6" stroke-dasharray="4, 2" />
+      
+      <!-- 매립 LED 간접 스트립 조명 -->
+      <rect x="255" y="215" width="10" height="10" fill="#000000" />
+      <rect x="635" y="215" width="10" height="10" fill="#000000" />
+
+      <!-- 지시선 -->
+      <line x1="250" y1="180" x2="160" y2="120" stroke="#000000" stroke-width="0.8" />
+      <line x1="160" y1="120" x2="90" y2="120" stroke="#000000" stroke-width="0.8" />
+      <text x="80" y="124" class="cad-kr-bold" text-anchor="end">20T 이탈리아산 천연 트래버틴 (45° 연귀접합)</text>
+
+      <line x1="260" y1="220" x2="160" y2="220" stroke="#000000" stroke-width="0.8" />
+      <text x="150" y="224" class="cad-kr-bold" text-anchor="end">LED 웜스트립 2700K (그림자 갭 매립)</text>
+
+      <line x1="450" y1="350" x2="720" y2="350" stroke="#000000" stroke-width="0.8" />
+      <text x="730" y="354" class="cad-kr-bold">내부 하중 지지용 각파이프 트러스 보강재</text>
+    </g>
+    
+    <!-- 전통 제도 도면 타이틀 기호 ⦶ -->
+    <g transform="translate(650, 830)">
+      <circle cx="0" cy="0" r="16" fill="none" stroke="#000000" stroke-width="1.2" />
+      <line x1="-24" y1="0" x2="24" y2="0" stroke="#000000" stroke-width="1.0" />
+      <text x="0" y="-8" class="cad-title-kr" text-anchor="middle">부분상세도 (아일랜드 주방 단면)</text>
+    </g>
+    </svg>

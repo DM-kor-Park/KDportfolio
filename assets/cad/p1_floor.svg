@@ -1,0 +1,464 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 880" width="1300" height="880" style="background:#FFFFFF;">
+  <defs>
+    <!-- 800x800 포세린 타일 그리드 (약 32px) -->
+    <pattern id="tile-grid-800" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 600x600 바닥 타일 그리드 (약 24px) -->
+    <pattern id="tile-grid-600" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 300x300 테라조 타일 그리드 (약 14px) -->
+    <pattern id="tile-grid-300" width="14" height="14" patternUnits="userSpaceOnUse">
+      <rect width="14" height="14" fill="none" stroke="#E5E7EB" stroke-width="0.4" />
+    </pattern>
+    <!-- 원목 마루 / 헤링본 패턴 -->
+    <pattern id="wood-herringbone" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 0 L10 10 L0 20 M10 0 L20 10 L10 20" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 단면 콘크리트 해치 -->
+    <pattern id="concrete-hatch" width="8" height="8" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="8" x2="8" y2="0" stroke="#9CA3AF" stroke-width="0.5" />
+    </pattern>
+  </defs>
+  
+  <style>
+    /* CAD 오토캐드 표준 폰트 (영문/숫자: ROMANS, 한글: 모던 고딕) */
+    .cad-kr { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 11px; fill: #000000; }
+    .cad-kr-bold { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 11px; font-weight: bold; fill: #000000; }
+    .cad-kr-sm { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 9.5px; fill: #000000; }
+    
+    /* 텍스트 뒤 선 겹침 방지 (White Halo Masking) */
+    .cad-romans { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 11px; 
+      font-weight: 600; 
+      fill: #000000; 
+      letter-spacing: 0.6px; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 3.5px; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .cad-romans-bold { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 12px; 
+      font-weight: 700; 
+      fill: #000000; 
+      letter-spacing: 0.8px; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 4px; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .cad-romans-sm { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 9.5px; 
+      font-weight: 600; 
+      fill: #000000; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 3px; 
+    }
+    
+    /* 도면 타이틀 표준 */
+    .cad-title-kr { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: bold; letter-spacing: 10px; fill: #000000; }
+    .cad-title-scale { font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; font-size: 12px; font-weight: 700; fill: #000000; }
+    .cad-tag-text { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 9.5px; fill: #000000; }
+  </style>
+
+    <g transform="translate(1200, 80)">
+      <circle cx="0" cy="0" r="15" fill="#FFFFFF" stroke="#000000" stroke-width="1.2" />
+      <polygon points="0,-15 -6,11 0,5" fill="#000000" />
+      <polygon points="0,-15 6,11 0,5" fill="#FFFFFF" stroke="#000000" stroke-width="0.8" />
+      <text x="0" y="-19" class="cad-romans-bold" text-anchor="middle">N</text>
+    </g>
+    
+    <!-- 중심선 (1점 쇄선 흑색 0.75px) -->
+    <g stroke="#000000" stroke-width="0.75" stroke-dasharray="18, 3, 2.5, 3">
+      <!-- 가로 축선 -->
+      <line x1="120" y1="140" x2="1140" y2="140" />
+      <line x1="120" y1="390" x2="1140" y2="390" />
+      <line x1="120" y1="640" x2="1140" y2="640" />
+      <!-- 세로 축선 -->
+      <line x1="200" y1="60" x2="200" y2="720" />
+      <line x1="480" y1="60" x2="480" y2="720" />
+      <line x1="780" y1="60" x2="780" y2="720" />
+      <line x1="1060" y1="60" x2="1060" y2="720" />
+    </g>
+    
+    <!-- 바닥 마감재 해치 (메인 쇼룸: 800x800 포세린, VIP룸: 헤링본 원목) -->
+    <rect x="200" y="140" width="860" height="500" fill="url(#tile-grid-800)" stroke="none" />
+    <rect x="780" y="140" width="280" height="250" fill="url(#wood-herringbone)" stroke="none" />
+    <line x1="780" y1="140" x2="780" y2="390" stroke="#000000" stroke-width="1.8" stroke-dasharray="6, 2" />
+    <text x="765" y="270" class="cad-romans-sm" transform="rotate(-90 765 270)">황동 재료분리대 (BRASS T:5)</text>
+    <g fill="#C4C4C4" stroke="#000000" stroke-width="2.2"><rect x="185" y="125" width="30" height="30" /><line x1="185" y1="125" x2="215" y2="155" stroke="#777777" stroke-width="0.6" /><line x1="185" y1="155" x2="215" y2="125" stroke="#777777" stroke-width="0.6" /><rect x="465" y="125" width="30" height="30" /><line x1="465" y1="125" x2="495" y2="155" stroke="#777777" stroke-width="0.6" /><line x1="465" y1="155" x2="495" y2="125" stroke="#777777" stroke-width="0.6" /><rect x="765" y="125" width="30" height="30" /><line x1="765" y1="125" x2="795" y2="155" stroke="#777777" stroke-width="0.6" /><line x1="765" y1="155" x2="795" y2="125" stroke="#777777" stroke-width="0.6" /><rect x="1045" y="125" width="30" height="30" /><line x1="1045" y1="125" x2="1075" y2="155" stroke="#777777" stroke-width="0.6" /><line x1="1045" y1="155" x2="1075" y2="125" stroke="#777777" stroke-width="0.6" /><rect x="185" y="375" width="30" height="30" /><line x1="185" y1="375" x2="215" y2="405" stroke="#777777" stroke-width="0.6" /><line x1="185" y1="405" x2="215" y2="375" stroke="#777777" stroke-width="0.6" /><rect x="1045" y="375" width="30" height="30" /><line x1="1045" y1="375" x2="1075" y2="405" stroke="#777777" stroke-width="0.6" /><line x1="1045" y1="405" x2="1075" y2="375" stroke="#777777" stroke-width="0.6" /><rect x="185" y="625" width="30" height="30" /><line x1="185" y1="625" x2="215" y2="655" stroke="#777777" stroke-width="0.6" /><line x1="185" y1="655" x2="215" y2="625" stroke="#777777" stroke-width="0.6" /><rect x="465" y="625" width="30" height="30" /><line x1="465" y1="625" x2="495" y2="655" stroke="#777777" stroke-width="0.6" /><line x1="465" y1="655" x2="495" y2="625" stroke="#777777" stroke-width="0.6" /><rect x="765" y="625" width="30" height="30" /><line x1="765" y1="625" x2="795" y2="655" stroke="#777777" stroke-width="0.6" /><line x1="765" y1="655" x2="795" y2="625" stroke="#777777" stroke-width="0.6" /><rect x="1045" y="625" width="30" height="30" /><line x1="1045" y1="625" x2="1075" y2="655" stroke="#777777" stroke-width="0.6" /><line x1="1045" y1="655" x2="1075" y2="625" stroke="#777777" stroke-width="0.6" /></g>
+    <!-- 단면 구조 외벽체 (200T, 회색 솔리드 및 굵은 외곽선) -->
+    <g fill="#C4C4C4" stroke="#000000" stroke-width="2.4">
+      <!-- 북측 외벽 (Y=130 to 150) -->
+      <rect x="200" y="130" width="860" height="20" />
+      
+      <!-- 서측 외벽 (X=190 to 210) -->
+      <rect x="190" y="130" width="20" height="520" />
+      
+      <!-- 동측 외벽 (X=1050 to 1070) -->
+      <rect x="1050" y="130" width="20" height="520" />
+      
+      <!-- 남측 외벽 좌측부 -->
+      <rect x="200" y="630" width="160" height="20" />
+      <!-- 남측 외벽 우측부 -->
+      <rect x="680" y="630" width="380" height="20" />
+    </g>
+    
+    <!-- 주출입구 전면 유리 커튼월 및 자동문 (X=360 to 680, Y=630 to 650) -->
+    <!-- 매립 프레임 및 고정창 -->
+    <g stroke="#000000" stroke-width="1.2" fill="#FFFFFF">
+      <rect x="360" y="635" width="320" height="10" />
+      <line x1="360" y1="640" x2="680" y2="640" stroke-width="1.8" />
+      <!-- 알루미늄 커튼월 멀리온 바 (Mullion) -->
+      <line x1="410" y1="635" x2="410" y2="645" stroke-width="2" />
+      <line x1="630" y1="635" x2="630" y2="645" stroke-width="2" />
+      
+      <!-- 슬라이딩 자동문 궤적 및 도어 패널 -->
+      <rect x="440" y="637" width="70" height="6" fill="#000000" />
+      <rect x="530" y="637" width="70" height="6" fill="#000000" />
+      <line x1="440" y1="648" x2="510" y2="648" stroke-dasharray="4, 3" stroke-width="1" />
+      <line x1="530" y1="648" x2="600" y2="648" stroke-dasharray="4, 3" stroke-width="1" />
+      
+      <!-- 입구 먼지털이 스테인리스 그레이팅 트렌치 매트 -->
+      <rect x="420" y="615" width="200" height="16" fill="none" stroke="#666666" stroke-width="0.8" />
+      <line x1="420" y1="620" x2="620" y2="620" stroke="#999999" stroke-width="0.5" stroke-dasharray="3, 3" />
+      <line x1="420" y1="625" x2="620" y2="625" stroke="#999999" stroke-width="0.5" stroke-dasharray="3, 3" />
+      <text x="520" y="627" class="cad-romans-sm" text-anchor="middle">SUS TRENCH MAT</text>
+      
+      <!-- 도난방지 EAS 센서 안테나 게이트 -->
+      <rect x="415" y="600" width="8" height="24" rx="2" fill="#FFFFFF" stroke="#000000" stroke-width="1.2" />
+      <rect x="617" y="600" width="8" height="24" rx="2" fill="#FFFFFF" stroke="#000000" stroke-width="1.2" />
+      
+      <!-- 주출입구 진입 방향 지시 화살표 -->
+      <polygon points="520,680 508,665 532,665" fill="#000000" />
+      <line x1="520" y1="695" x2="520" y2="680" stroke="#000000" stroke-width="2.5" />
+      <text x="520" y="710" class="cad-kr-bold" text-anchor="middle">주 출 입 구 (MAIN ENTRANCE)</text>
+    </g>
+    
+    <!-- 내부 100T 석고보드 간막이벽 (Poché Gray #D1D5DB) -->
+    <g fill="#D1D5DB" stroke="#000000" stroke-width="1.8">
+      <!-- VIP룸 및 피팅룸 서측 경계벽 -->
+      <rect x="775" y="140" width="10" height="250" />
+      <!-- 창고 북측 경계벽 -->
+      <rect x="775" y="470" width="295" height="10" />
+      
+      <!-- 피팅룸 1, 2 분할벽 -->
+      <rect x="880" y="140" width="10" height="130" />
+      <rect x="775" y="270" width="200" height="10" />
+    </g>
+    
+    <!-- 피팅룸 1 도어 (문틀 + 40T 도어리프 + 개폐 호) -->
+    <g stroke="#000000" stroke-width="1.0" fill="none">
+      <rect x="785" y="266" width="6" height="18" fill="#000000" stroke="none" />
+      <rect x="860" y="266" width="6" height="18" fill="#000000" stroke="none" />
+      <line x1="791" y1="275" x2="860" y2="275" stroke="#999999" stroke-width="0.8" />
+      <!-- 열린 문짝 (40T) -->
+      <rect x="788" y="205" width="6" height="70" fill="#FFFFFF" stroke="#000000" stroke-width="1.2" />
+      <!-- 회전 호 (Arc) -->
+      <path d="M 860,275 A 72 72 0 0 0 794,205" stroke-dasharray="3, 3" stroke-width="0.8" />
+      <text x="825" y="260" class="cad-romans-sm" text-anchor="middle">D1 (800)</text>
+    </g>
+
+    <!-- 피팅룸 2 도어 -->
+    <g stroke="#000000" stroke-width="1.0" fill="none">
+      <rect x="890" y="266" width="6" height="18" fill="#000000" stroke="none" />
+      <rect x="965" y="266" width="6" height="18" fill="#000000" stroke="none" />
+      <line x1="896" y1="275" x2="965" y2="275" stroke="#999999" stroke-width="0.8" />
+      <rect x="893" y="205" width="6" height="70" fill="#FFFFFF" stroke="#000000" stroke-width="1.2" />
+      <path d="M 965,275 A 72 72 0 0 0 899,205" stroke-dasharray="3, 3" stroke-width="0.8" />
+      <text x="930" y="260" class="cad-romans-sm" text-anchor="middle">D1 (800)</text>
+    </g>
+
+    <!-- 창고 방화문 (F.D 900x2100) -->
+    <g stroke="#000000" stroke-width="1.0" fill="none">
+      <rect x="810" y="466" width="6" height="18" fill="#000000" stroke="none" />
+      <rect x="890" y="466" width="6" height="18" fill="#000000" stroke="none" />
+      <rect x="813" y="475" width="6" height="80" fill="#FFFFFF" stroke="#000000" stroke-width="1.2" />
+      <path d="M 890,475 A 80 80 0 0 1 819,555" stroke-dasharray="3, 3" stroke-width="0.8" />
+      <text x="850" y="462" class="cad-romans-sm" text-anchor="middle">F.D (900)</text>
+    </g>
+    
+    <!-- [A] 중앙 키네틱 회전 쇼케이스 무대 (Ø4,200) -->
+    <g fill="#FFFFFF" stroke="#000000">
+      <!-- 외곽 무대 스테이지 단차 라인 (H=150) -->
+      <circle cx="490" cy="380" r="110" stroke-width="1.6" />
+      <!-- 황동 매립 분할 링 -->
+      <circle cx="490" cy="380" r="95" stroke-width="0.8" stroke-dasharray="5, 3" />
+      <!-- 회전 턴테이블 플랫폼 (R=75) -->
+      <circle cx="490" cy="380" r="75" stroke-width="1.4" />
+      <!-- 회전축 및 방사형 분할 메커니즘 라인 -->
+      <line x1="415" y1="380" x2="565" y2="380" stroke-width="0.6" />
+      <line x1="490" y1="305" x2="490" y2="455" stroke-width="0.6" />
+      <!-- 회전 방향 표시 곡선 화살표 -->
+      <path d="M 490,295 A 85 85 0 0 1 570,355" fill="none" stroke-width="1.4" />
+      <polygon points="573,346 575,361 563,358" fill="#000000" stroke="none" />
+      <!-- 중심 오브제 베이스 타워 -->
+      <circle cx="490" cy="380" r="22" fill="#C4C4C4" stroke-width="1.2" />
+      <text x="490" y="420" class="cad-kr-bold" text-anchor="middle">키네틱 회전 무대 (Ø4,200)</text>
+      <text x="490" y="434" class="cad-romans-sm" text-anchor="middle">FL +150 (TURNTABLE)</text>
+    </g>
+
+    <!-- [B] 프리미엄 VMD 독립 쇼케이스 아일랜드 (3개소) -->
+    <!-- 쇼케이스 1 (좌측 상부) -->
+    <g fill="#FFFFFF" stroke="#000000" stroke-width="1.2">
+      <rect x="260" y="210" width="130" height="50" rx="3" />
+      <rect x="270" y="218" width="110" height="34" fill="none" stroke-dasharray="3, 2" stroke-width="0.7" />
+      <text x="325" y="238" class="cad-kr" text-anchor="middle">VMD 쇼케이스 A</text>
+      <text x="325" y="250" class="cad-romans-sm" text-anchor="middle">H:950 (GLASS TOP)</text>
+    </g>
+
+    <!-- 쇼케이스 2 (좌측 하부) -->
+    <g fill="#FFFFFF" stroke="#000000" stroke-width="1.2">
+      <rect x="260" y="500" width="130" height="50" rx="3" />
+      <rect x="270" y="508" width="110" height="34" fill="none" stroke-dasharray="3, 2" stroke-width="0.7" />
+      <text x="325" y="528" class="cad-kr" text-anchor="middle">VMD 쇼케이스 B</text>
+      <text x="325" y="540" class="cad-romans-sm" text-anchor="middle">H:950 (STONE BASE)</text>
+    </g>
+
+    <!-- 쇼케이스 3 (중앙 전면) -->
+    <g fill="#FFFFFF" stroke="#000000" stroke-width="1.2">
+      <rect x="425" y="510" width="130" height="45" rx="3" />
+      <rect x="435" y="517" width="110" height="31" fill="none" stroke-dasharray="3, 2" stroke-width="0.7" />
+      <text x="490" y="534" class="cad-kr" text-anchor="middle">아일랜드 디스플레이 C</text>
+    </g>
+
+    <!-- [C] 북측 벽체 매립형 빌트인 진열 선반 (Perimeter Wall Shelving) -->
+    <g fill="#FFFFFF" stroke="#000000" stroke-width="1.1">
+      <!-- 진열장 1 -->
+      <rect x="240" y="150" width="180" height="24" />
+      <line x1="300" y1="150" x2="300" y2="174" stroke-width="0.7" />
+      <line x1="360" y1="150" x2="360" y2="174" stroke-width="0.7" />
+      <text x="330" y="166" class="cad-kr-sm" text-anchor="middle">빌트인 진열 선반 A</text>
+
+      <!-- 진열장 2 -->
+      <rect x="520" y="150" width="200" height="24" />
+      <line x1="586" y1="150" x2="586" y2="174" stroke-width="0.7" />
+      <line x1="653" y1="150" x2="653" y2="174" stroke-width="0.7" />
+      <text x="620" y="166" class="cad-kr-sm" text-anchor="middle">브랜드 시그니처 월 B</text>
+    </g>
+
+    <!-- [D] 서측 벽면 행잉 시스템 (Hangbar System) -->
+    <g fill="#FFFFFF" stroke="#000000" stroke-width="1.0">
+      <rect x="210" y="300" width="18" height="160" />
+      <line x1="210" y1="340" x2="228" y2="340" stroke-width="0.7" />
+      <line x1="210" y1="380" x2="228" y2="380" stroke-width="0.7" />
+      <line x1="210" y1="420" x2="228" y2="420" stroke-width="0.7" />
+      <text x="219" y="375" class="cad-kr-sm" text-anchor="middle" transform="rotate(-90 219 375)">모듈러 행거 선반</text>
+    </g>
+
+    <!-- [E] 카운터 &amp; 안내 결제 POS 존 (Cash Wrap) -->
+    <g fill="#FFFFFF" stroke="#000000" stroke-width="1.3">
+      <!-- 메인 카운터 본체 (L자형 테라조 일체형) -->
+      <path d="M 640,460 L 740,460 L 740,570 L 685,570 L 685,505 L 640,505 Z" fill="#FFFFFF" />
+      <!-- POS 듀얼 모니터 및 단말기 심볼 -->
+      <rect x="695" y="475" width="22" height="14" fill="#000000" />
+      <rect x="720" y="476" width="10" height="12" fill="#888888" />
+      <!-- 직원 스툴 의자 -->
+      <circle cx="715" cy="535" r="12" fill="none" stroke-width="1.2" />
+      <circle cx="715" cy="535" r="4" fill="#000000" />
+      <text x="680" y="448" class="cad-kr-bold" text-anchor="middle">안내 및 POS 카운터</text>
+      <text x="680" y="458" class="cad-romans-sm" text-anchor="middle">H:1,050 / ADA H:750</text>
+    </g>
+
+    <!-- [F] 피팅룸 1, 2 내부 가구 (거울 + 스툴 + 옷걸이) -->
+    <g fill="#FFFFFF" stroke="#000000" stroke-width="1.0">
+      <!-- 피팅룸 1 전신 거울 -->
+      <line x1="790" y1="145" x2="865" y2="145" stroke-width="2.5" />
+      <text x="827" y="156" class="cad-kr-sm" text-anchor="middle">경 (MIRROR)</text>
+      <circle cx="830" cy="190" r="14" rx="3" fill="#F3F4F6" />
+      <!-- 피팅룸 2 전신 거울 -->
+      <line x1="895" y1="145" x2="970" y2="145" stroke-width="2.5" />
+      <text x="932" y="156" class="cad-kr-sm" text-anchor="middle">경 (MIRROR)</text>
+      <circle cx="935" cy="190" r="14" rx="3" fill="#F3F4F6" />
+    </g>
+
+    <!-- [G] VIP 라운지 (커브드 소파 + 대리석 커피테이블 + 라운지체어) -->
+    <g fill="#FFFFFF" stroke="#000000" stroke-width="1.2">
+      <!-- 커브드 3인 소파 -->
+      <path d="M 800,340 Q 860,300 940,320 L 935,350 Q 860,330 805,370 Z" fill="#F9FAFB" />
+      <!-- 원형 트래버틴 티테이블 -->
+      <circle cx="875" cy="355" r="22" fill="#FFFFFF" stroke-width="1.2" />
+      <text x="875" y="358" class="cad-romans-sm" text-anchor="middle">TEA TABLE</text>
+      <!-- 플로어 스탠드 조명 심볼 -->
+      <circle cx="795" cy="380" r="8" fill="none" stroke-width="0.8" />
+      <line x1="790" y1="380" x2="800" y2="380" />
+      <line x1="795" y1="375" x2="795" y2="385" />
+    </g>
+
+    <!-- [H] 창고 &amp; 백오피스 (4단 조립식 앵글 랙 + 분전반 + 소화기) -->
+    <g fill="#FFFFFF" stroke="#000000" stroke-width="1.0">
+      <!-- 앵글 랙 선반 (북측) -->
+      <rect x="880" y="485" width="160" height="28" />
+      <line x1="920" y1="485" x2="920" y2="513" stroke-dasharray="2, 2" />
+      <line x1="960" y1="485" x2="960" y2="513" stroke-dasharray="2, 2" />
+      <line x1="1000" y1="485" x2="1000" y2="513" stroke-dasharray="2, 2" />
+      <text x="960" y="503" class="cad-kr-sm" text-anchor="middle">4단 앵글 랙 선반</text>
+
+      <!-- 앵글 랙 선반 (동측) -->
+      <rect x="1015" y="525" width="28" height="100" />
+      <text x="1029" y="580" class="cad-kr-sm" text-anchor="middle" transform="rotate(-90 1029 580)">물품 보관 랙</text>
+
+      <!-- 분전반 (EPS) -->
+      <rect x="785" y="590" width="12" height="36" fill="#000000" />
+      <text x="810" y="612" class="cad-romans-bold">EPS</text>
+
+      <!-- 소화기 (Fire Extinguisher) -->
+      <circle cx="800" cy="565" r="9" fill="#FFFFFF" stroke="#000000" stroke-width="1.2" />
+      <text x="800" y="569" class="cad-kr-bold" text-anchor="middle" font-size="8">소</text>
+    </g>
+    
+    <!-- 입면 방향 지시 부호 (A 입면, B 입면) -->
+    <g transform="translate(490, 240)">
+      <circle cx="0" cy="0" r="14" fill="#FFFFFF" stroke="#000000" stroke-width="1.2" />
+      <line x1="-14" y1="0" x2="14" y2="0" stroke="#000000" stroke-width="1.0" />
+      <polygon points="0,-14 -5,-4 5,-4" fill="#000000" />
+      <text x="0" y="9" class="cad-romans-bold" text-anchor="middle">B</text>
+    </g>
+    
+    <g transform="translate(490, 480)">
+      <circle cx="0" cy="0" r="14" fill="#FFFFFF" stroke="#000000" stroke-width="1.2" />
+      <line x1="-14" y1="0" x2="14" y2="0" stroke="#000000" stroke-width="1.0" />
+      <polygon points="0,14 -5,4 5,4" fill="#000000" />
+      <text x="0" y="-4" class="cad-romans-bold" text-anchor="middle">A</text>
+    </g>
+    
+    <g transform="translate(490, 310)">
+      <rect x="-80.0" y="-26" width="160" height="52" fill="#FFFFFF" stroke="#000000" stroke-width="0.9" />
+      <line x1="-80.0" y1="-9" x2="80.0" y2="-9" stroke="#000000" stroke-width="0.6" />
+      <line x1="-80.0" y1="8" x2="80.0" y2="8" stroke="#000000" stroke-width="0.6" />
+      <text x="0" y="-13" class="cad-kr-bold" text-anchor="middle">MAIN SHOWROOM</text>
+      <text x="0" y="3" class="cad-tag-text" text-anchor="middle">app. 마이크로시멘트 / 포세린</text>
+      <text x="0" y="20" class="cad-romans-sm" text-anchor="middle">148.5㎡ / 44.9py</text>
+    </g>
+    
+    <g transform="translate(910, 360)">
+      <rect x="-70.0" y="-26" width="140" height="52" fill="#FFFFFF" stroke="#000000" stroke-width="0.9" />
+      <line x1="-70.0" y1="-9" x2="70.0" y2="-9" stroke="#000000" stroke-width="0.6" />
+      <line x1="-70.0" y1="8" x2="70.0" y2="8" stroke="#000000" stroke-width="0.6" />
+      <text x="0" y="-13" class="cad-kr-bold" text-anchor="middle">VIP LOUNGE</text>
+      <text x="0" y="3" class="cad-tag-text" text-anchor="middle">app. 광폭 원목마루</text>
+      <text x="0" y="20" class="cad-romans-sm" text-anchor="middle">28.4㎡ / 8.6py</text>
+    </g>
+    
+    <g transform="translate(940, 560)">
+      <rect x="-70.0" y="-26" width="140" height="52" fill="#FFFFFF" stroke="#000000" stroke-width="0.9" />
+      <line x1="-70.0" y1="-9" x2="70.0" y2="-9" stroke="#000000" stroke-width="0.6" />
+      <line x1="-70.0" y1="8" x2="70.0" y2="8" stroke="#000000" stroke-width="0.6" />
+      <text x="0" y="-13" class="cad-kr-bold" text-anchor="middle">STORAGE &amp; OFFICE</text>
+      <text x="0" y="3" class="cad-tag-text" text-anchor="middle">app. 에폭시 코팅</text>
+      <text x="0" y="20" class="cad-romans-sm" text-anchor="middle">24.6㎡ / 7.4py</text>
+    </g>
+    
+      <line x1="200" y1="140" x2="200" y2="105" stroke="#000000" stroke-width="0.6" />
+      <line x1="480" y1="140" x2="480" y2="105" stroke="#000000" stroke-width="0.6" />
+      <line x1="200" y1="105" x2="480" y2="105" stroke="#000000" stroke-width="0.8" />
+      <circle cx="200" cy="105" r="2.2" fill="#000000" />
+      <circle cx="480" cy="105" r="2.2" fill="#000000" />
+      <text x="340.0" y="101" class="cad-romans" text-anchor="middle">6,000</text>
+    
+      <line x1="480" y1="140" x2="480" y2="105" stroke="#000000" stroke-width="0.6" />
+      <line x1="780" y1="140" x2="780" y2="105" stroke="#000000" stroke-width="0.6" />
+      <line x1="480" y1="105" x2="780" y2="105" stroke="#000000" stroke-width="0.8" />
+      <circle cx="480" cy="105" r="2.2" fill="#000000" />
+      <circle cx="780" cy="105" r="2.2" fill="#000000" />
+      <text x="630.0" y="101" class="cad-romans" text-anchor="middle">6,000</text>
+    
+      <line x1="780" y1="140" x2="780" y2="105" stroke="#000000" stroke-width="0.6" />
+      <line x1="1060" y1="140" x2="1060" y2="105" stroke="#000000" stroke-width="0.6" />
+      <line x1="780" y1="105" x2="1060" y2="105" stroke="#000000" stroke-width="0.8" />
+      <circle cx="780" cy="105" r="2.2" fill="#000000" />
+      <circle cx="1060" cy="105" r="2.2" fill="#000000" />
+      <text x="920.0" y="101" class="cad-romans" text-anchor="middle">6,000</text>
+    
+      <line x1="200" y1="105" x2="200" y2="75" stroke="#000000" stroke-width="0.6" />
+      <line x1="1060" y1="105" x2="1060" y2="75" stroke="#000000" stroke-width="0.6" />
+      <line x1="200" y1="75" x2="1060" y2="75" stroke="#000000" stroke-width="0.8" />
+      <circle cx="200" cy="75" r="2.2" fill="#000000" />
+      <circle cx="1060" cy="75" r="2.2" fill="#000000" />
+      <text x="630.0" y="71" class="cad-romans" text-anchor="middle">18,000</text>
+    
+      <line x1="200" y1="640" x2="200" y2="680" stroke="#000000" stroke-width="0.6" />
+      <line x1="360" y1="640" x2="360" y2="680" stroke="#000000" stroke-width="0.6" />
+      <line x1="200" y1="680" x2="360" y2="680" stroke="#000000" stroke-width="0.8" />
+      <circle cx="200" cy="680" r="2.2" fill="#000000" />
+      <circle cx="360" cy="680" r="2.2" fill="#000000" />
+      <text x="280.0" y="693" class="cad-romans" text-anchor="middle">3,200</text>
+    
+      <line x1="360" y1="640" x2="360" y2="680" stroke="#000000" stroke-width="0.6" />
+      <line x1="680" y1="640" x2="680" y2="680" stroke="#000000" stroke-width="0.6" />
+      <line x1="360" y1="680" x2="680" y2="680" stroke="#000000" stroke-width="0.8" />
+      <circle cx="360" cy="680" r="2.2" fill="#000000" />
+      <circle cx="680" cy="680" r="2.2" fill="#000000" />
+      <text x="520.0" y="693" class="cad-romans" text-anchor="middle">6,800 (주출입구)</text>
+    
+      <line x1="680" y1="640" x2="680" y2="680" stroke="#000000" stroke-width="0.6" />
+      <line x1="1060" y1="640" x2="1060" y2="680" stroke="#000000" stroke-width="0.6" />
+      <line x1="680" y1="680" x2="1060" y2="680" stroke="#000000" stroke-width="0.8" />
+      <circle cx="680" cy="680" r="2.2" fill="#000000" />
+      <circle cx="1060" cy="680" r="2.2" fill="#000000" />
+      <text x="870.0" y="693" class="cad-romans" text-anchor="middle">8,000</text>
+    
+      <line x1="200" y1="680" x2="200" y2="715" stroke="#000000" stroke-width="0.6" />
+      <line x1="1060" y1="680" x2="1060" y2="715" stroke="#000000" stroke-width="0.6" />
+      <line x1="200" y1="715" x2="1060" y2="715" stroke="#000000" stroke-width="0.8" />
+      <circle cx="200" cy="715" r="2.2" fill="#000000" />
+      <circle cx="1060" cy="715" r="2.2" fill="#000000" />
+      <text x="630.0" y="728" class="cad-romans" text-anchor="middle">18,000</text>
+    
+      <line x1="200" y1="140" x2="155" y2="140" stroke="#000000" stroke-width="0.6" />
+      <line x1="200" y1="390" x2="155" y2="390" stroke="#000000" stroke-width="0.6" />
+      <line x1="155" y1="140" x2="155" y2="390" stroke="#000000" stroke-width="0.8" />
+      <circle cx="155" cy="140" r="2.2" fill="#000000" />
+      <circle cx="155" cy="390" r="2.2" fill="#000000" />
+      <text x="150" y="265.0" class="cad-romans" text-anchor="middle" transform="rotate(-90 150 265.0)">5,500</text>
+    
+      <line x1="200" y1="390" x2="155" y2="390" stroke="#000000" stroke-width="0.6" />
+      <line x1="200" y1="640" x2="155" y2="640" stroke="#000000" stroke-width="0.6" />
+      <line x1="155" y1="390" x2="155" y2="640" stroke="#000000" stroke-width="0.8" />
+      <circle cx="155" cy="390" r="2.2" fill="#000000" />
+      <circle cx="155" cy="640" r="2.2" fill="#000000" />
+      <text x="150" y="515.0" class="cad-romans" text-anchor="middle" transform="rotate(-90 150 515.0)">5,500</text>
+    
+      <line x1="155" y1="140" x2="120" y2="140" stroke="#000000" stroke-width="0.6" />
+      <line x1="155" y1="640" x2="120" y2="640" stroke="#000000" stroke-width="0.6" />
+      <line x1="120" y1="140" x2="120" y2="640" stroke="#000000" stroke-width="0.8" />
+      <circle cx="120" cy="140" r="2.2" fill="#000000" />
+      <circle cx="120" cy="640" r="2.2" fill="#000000" />
+      <text x="115" y="390.0" class="cad-romans" text-anchor="middle" transform="rotate(-90 115 390.0)">11,000</text>
+    
+      <line x1="1060" y1="140" x2="1105" y2="140" stroke="#000000" stroke-width="0.6" />
+      <line x1="1060" y1="390" x2="1105" y2="390" stroke="#000000" stroke-width="0.6" />
+      <line x1="1105" y1="140" x2="1105" y2="390" stroke="#000000" stroke-width="0.8" />
+      <circle cx="1105" cy="140" r="2.2" fill="#000000" />
+      <circle cx="1105" cy="390" r="2.2" fill="#000000" />
+      <text x="1119" y="265.0" class="cad-romans" text-anchor="middle" transform="rotate(-90 1119 265.0)">5,500</text>
+    
+      <line x1="1060" y1="390" x2="1105" y2="390" stroke="#000000" stroke-width="0.6" />
+      <line x1="1060" y1="640" x2="1105" y2="640" stroke="#000000" stroke-width="0.6" />
+      <line x1="1105" y1="390" x2="1105" y2="640" stroke="#000000" stroke-width="0.8" />
+      <circle cx="1105" cy="390" r="2.2" fill="#000000" />
+      <circle cx="1105" cy="640" r="2.2" fill="#000000" />
+      <text x="1119" y="515.0" class="cad-romans" text-anchor="middle" transform="rotate(-90 1119 515.0)">5,500</text>
+    
+      <line x1="1105" y1="140" x2="1140" y2="140" stroke="#000000" stroke-width="0.6" />
+      <line x1="1105" y1="640" x2="1140" y2="640" stroke="#000000" stroke-width="0.6" />
+      <line x1="1140" y1="140" x2="1140" y2="640" stroke="#000000" stroke-width="0.8" />
+      <circle cx="1140" cy="140" r="2.2" fill="#000000" />
+      <circle cx="1140" cy="640" r="2.2" fill="#000000" />
+      <text x="1154" y="390.0" class="cad-romans" text-anchor="middle" transform="rotate(-90 1154 390.0)">11,000</text>
+    
+    <!-- 전통 제도 도면 타이틀 기호 ⦶ -->
+    <g transform="translate(650, 830)">
+      <circle cx="0" cy="0" r="16" fill="none" stroke="#000000" stroke-width="1.2" />
+      <line x1="-24" y1="0" x2="24" y2="0" stroke="#000000" stroke-width="1.0" />
+      <text x="0" y="-8" class="cad-title-kr" text-anchor="middle">평    면    도</text>
+    </g>
+    </svg>

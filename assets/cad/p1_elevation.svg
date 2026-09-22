@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 880" width="1300" height="880" style="background:#FFFFFF;">
+  <defs>
+    <!-- 800x800 포세린 타일 그리드 (약 32px) -->
+    <pattern id="tile-grid-800" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 600x600 바닥 타일 그리드 (약 24px) -->
+    <pattern id="tile-grid-600" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 300x300 테라조 타일 그리드 (약 14px) -->
+    <pattern id="tile-grid-300" width="14" height="14" patternUnits="userSpaceOnUse">
+      <rect width="14" height="14" fill="none" stroke="#E5E7EB" stroke-width="0.4" />
+    </pattern>
+    <!-- 원목 마루 / 헤링본 패턴 -->
+    <pattern id="wood-herringbone" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 0 L10 10 L0 20 M10 0 L20 10 L10 20" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 단면 콘크리트 해치 -->
+    <pattern id="concrete-hatch" width="8" height="8" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="8" x2="8" y2="0" stroke="#9CA3AF" stroke-width="0.5" />
+    </pattern>
+  </defs>
+  
+  <style>
+    /* CAD 오토캐드 표준 폰트 (영문/숫자: ROMANS, 한글: 모던 고딕) */
+    .cad-kr { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 11px; fill: #000000; }
+    .cad-kr-bold { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 11px; font-weight: bold; fill: #000000; }
+    .cad-kr-sm { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 9.5px; fill: #000000; }
+    
+    /* 텍스트 뒤 선 겹침 방지 (White Halo Masking) */
+    .cad-romans { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 11px; 
+      font-weight: 600; 
+      fill: #000000; 
+      letter-spacing: 0.6px; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 3.5px; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .cad-romans-bold { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 12px; 
+      font-weight: 700; 
+      fill: #000000; 
+      letter-spacing: 0.8px; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 4px; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .cad-romans-sm { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 9.5px; 
+      font-weight: 600; 
+      fill: #000000; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 3px; 
+    }
+    
+    /* 도면 타이틀 표준 */
+    .cad-title-kr { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: bold; letter-spacing: 10px; fill: #000000; }
+    .cad-title-scale { font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; font-size: 12px; font-weight: 700; fill: #000000; }
+    .cad-tag-text { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 9.5px; fill: #000000; }
+  </style>
+
+    <!-- ================= [상단] B 입면도 (벽체 진열 쇼케이스 월) ================= -->
+    <g transform="translate(0, 40)">
+      <!-- 레벨선 (CL, FL) -->
+      <line x1="160" y1="80" x2="1140" y2="80" stroke="#000000" stroke-width="0.8" stroke-dasharray="16, 4, 3, 4" />
+      <text x="140" y="84" class="cad-romans-bold" text-anchor="end">CL +3,800</text>
+      
+      <line x1="160" y1="340" x2="1140" y2="340" stroke="#000000" stroke-width="1.8" />
+      <text x="140" y="344" class="cad-romans-bold" text-anchor="end">FL ±0</text>
+
+      <!-- 입면 벽체 테두리 (외벽 슬래브 단면 굵은 선 2.2px) -->
+      <rect x="200" y="80" width="860" height="260" fill="#FFFFFF" stroke="#000000" stroke-width="2.2" />
+      
+      <!-- 바닥 걸레받이 (SUS H:60) -->
+      <rect x="200" y="334" width="860" height="6" fill="#C4C4C4" stroke="#000000" stroke-width="0.8" />
+      <text x="210" y="360" class="cad-romans-sm">APP. SUS BASEBOARD H:60</text>
+
+      <!-- 벽면 스터코 분할 패널 및 간접 라이팅 매립 니치 -->
+      <g stroke="#000000" stroke-width="1.2" fill="#FFFFFF">
+        <!-- 니치 1 -->
+        <rect x="260" y="110" width="180" height="180" />
+        <rect x="270" y="120" width="160" height="160" fill="#F9FAFB" stroke-dasharray="3, 2" stroke-width="0.7" />
+        <line x1="260" y1="170" x2="440" y2="170" stroke-width="1.0" />
+        <line x1="260" y1="230" x2="440" y2="230" stroke-width="1.0" />
+        <text x="350" y="150" class="cad-kr-sm" text-anchor="middle">특화 VMD 진열선반 1</text>
+
+        <!-- 중앙 키네틱 오브제 후면 시그니처 미디어 월 -->
+        <rect x="490" y="95" width="280" height="210" fill="#F3F4F6" stroke-width="1.5" />
+        <text x="630" y="140" class="cad-romans-bold" font-size="14" letter-spacing="4" text-anchor="middle">BRAND SIGNATURE</text>
+        <line x1="530" y1="155" x2="730" y2="155" stroke-width="0.8" />
+        <!-- 하부 플린스 받침대 -->
+        <rect x="530" y="265" width="200" height="40" fill="#E5E7EB" stroke-width="1.2" />
+        <text x="630" y="290" class="cad-kr-bold" text-anchor="middle">키네틱 회전 베이스 무대 (H:400)</text>
+
+        <!-- 니치 2 -->
+        <rect x="820" y="110" width="180" height="180" />
+        <rect x="830" y="120" width="160" height="160" fill="#F9FAFB" stroke-dasharray="3, 2" stroke-width="0.7" />
+        <line x1="820" y1="170" x2="1000" y2="170" stroke-width="1.0" />
+        <line x1="820" y1="230" x2="1000" y2="230" stroke-width="1.0" />
+        <text x="910" y="150" class="cad-kr-sm" text-anchor="middle">특화 VMD 진열선반 2</text>
+      </g>
+
+      <!-- 재료 마감 인출선 (Leader lines) -->
+      <g stroke="#000000" stroke-width="0.7" fill="none">
+        <line x1="350" y1="110" x2="350" y2="60" />
+        <line x1="350" y1="60" x2="390" y2="60" />
+        <text x="395" y="63" class="cad-kr-sm" fill="#000000" stroke="none">APP. 저철분 강화유리 선반 12T</text>
+
+        <line x1="630" y1="95" x2="630" y2="50" />
+        <line x1="630" y1="50" x2="670" y2="50" />
+        <text x="675" y="53" class="cad-kr-sm" fill="#000000" stroke="none">APP. 무광 블랙 스터코 특화도장</text>
+      </g>
+
+      <!-- 수직 치수선 -->
+      <line x1="1080" y1="80" x2="1080" y2="340" stroke="#000000" stroke-width="0.8" />
+      <circle cx="1080" cy="80" r="2.2" fill="#000000" />
+      <circle cx="1080" cy="340" r="2.2" fill="#000000" />
+      <text x="1115" y="215" class="cad-romans-bold" text-anchor="middle">3,800</text>
+
+      <!-- B 입면도 타이틀 -->
+      <g transform="translate(650, 380)">
+        <circle cx="0" cy="0" r="14" fill="none" stroke="#000000" stroke-width="1.2" />
+        <line x1="-20" y1="0" x2="20" y2="0" stroke="#000000" stroke-width="0.8" />
+        <text x="0" y="-6" class="cad-title-kr" font-size="16" letter-spacing="8" text-anchor="middle">B  입  면  도</text>
+      </g>
+    </g>
+    
+    <!-- ================= [하단] A 입면도 (전면 출입구 및 카운터 월) ================= -->
+    <g transform="translate(0, 460)">
+      <!-- 레벨선 -->
+      <line x1="160" y1="80" x2="1140" y2="80" stroke="#000000" stroke-width="0.8" stroke-dasharray="16, 4, 3, 4" />
+      <text x="140" y="84" class="cad-romans-bold" text-anchor="end">CL +3,800</text>
+      
+      <line x1="160" y1="340" x2="1140" y2="340" stroke="#000000" stroke-width="1.8" />
+      <text x="140" y="344" class="cad-romans-bold" text-anchor="end">FL ±0</text>
+
+      <!-- 입면 벽체 테두리 -->
+      <rect x="200" y="80" width="860" height="260" fill="#FFFFFF" stroke="#000000" stroke-width="2.2" />
+      
+      <!-- 유리 커튼월 및 전면 게이트 (X=200 to 650) -->
+      <g stroke="#000000" stroke-width="1.2" fill="#FFFFFF">
+        <rect x="200" y="100" width="450" height="240" fill="#F8FAFC" />
+        <!-- 멀리온 프레임 (Vertical Mullions) -->
+        <line x1="280" y1="100" x2="280" y2="340" stroke-width="1.6" />
+        <line x1="360" y1="100" x2="360" y2="340" stroke-width="2.0" />
+        <line x1="520" y1="100" x2="520" y2="340" stroke-width="2.0" />
+        <line x1="600" y1="100" x2="600" y2="340" stroke-width="1.6" />
+        <!-- 강화유리 자동문 도어 패널 (360 to 520) -->
+        <rect x="365" y="120" width="70" height="220" fill="none" stroke-width="1.5" />
+        <rect x="445" y="120" width="70" height="220" fill="none" stroke-width="1.5" />
+        <line x1="430" y1="210" x2="430" y2="250" stroke-width="3" stroke-linecap="round" />
+        <line x1="450" y1="210" x2="450" y2="250" stroke-width="3" stroke-linecap="round" />
+        <text x="440" y="170" class="cad-romans-sm" text-anchor="middle">AUTO GLASS DOOR</text>
+      </g>
+
+      <!-- 우측 안내 및 결제 POS 카운터 입면 (X=700 to 980) -->
+      <g stroke="#000000" stroke-width="1.3" fill="#FFFFFF">
+        <!-- 후면 백월 (대형 슬랩 타일) -->
+        <rect x="680" y="80" width="380" height="260" fill="#F3F4F6" />
+        <line x1="680" y1="200" x2="1060" y2="200" stroke="#CCCCCC" stroke-width="0.8" />
+        
+        <!-- 카운터 전면 (테라조 일체형 H=1050) -->
+        <rect x="720" y="235" width="260" height="105" rx="3" fill="#E5E7EB" stroke-width="1.6" />
+        <line x1="720" y1="265" x2="980" y2="265" stroke-width="0.8" stroke-dasharray="4, 2" />
+        <text x="850" y="290" class="cad-kr-bold" text-anchor="middle">안내 및 POS 카운터</text>
+        <text x="850" y="305" class="cad-romans-sm" text-anchor="middle">H:1,050 (TERRAZZO FINISH)</text>
+      </g>
+
+      <!-- 수직 치수선 -->
+      <line x1="1080" y1="80" x2="1080" y2="340" stroke="#000000" stroke-width="0.8" />
+      <circle cx="1080" cy="80" r="2.2" fill="#000000" />
+      <circle cx="1080" cy="340" r="2.2" fill="#000000" />
+      <text x="1115" y="215" class="cad-romans-bold" text-anchor="middle">3,800</text>
+
+      <!-- A 입면도 타이틀 -->
+      <g transform="translate(650, 380)">
+        <circle cx="0" cy="0" r="14" fill="none" stroke="#000000" stroke-width="1.2" />
+        <line x1="-20" y1="0" x2="20" y2="0" stroke="#000000" stroke-width="0.8" />
+        <text x="0" y="-6" class="cad-title-kr" font-size="16" letter-spacing="8" text-anchor="middle">A  입  면  도</text>
+      </g>
+    </g>
+    </svg>

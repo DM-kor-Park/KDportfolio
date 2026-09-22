@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 880" width="1300" height="880" style="background:#FFFFFF;">
+  <defs>
+    <!-- 800x800 포세린 타일 그리드 (약 32px) -->
+    <pattern id="tile-grid-800" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 600x600 바닥 타일 그리드 (약 24px) -->
+    <pattern id="tile-grid-600" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 300x300 테라조 타일 그리드 (약 14px) -->
+    <pattern id="tile-grid-300" width="14" height="14" patternUnits="userSpaceOnUse">
+      <rect width="14" height="14" fill="none" stroke="#E5E7EB" stroke-width="0.4" />
+    </pattern>
+    <!-- 원목 마루 / 헤링본 패턴 -->
+    <pattern id="wood-herringbone" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 0 L10 10 L0 20 M10 0 L20 10 L10 20" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 단면 콘크리트 해치 -->
+    <pattern id="concrete-hatch" width="8" height="8" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="8" x2="8" y2="0" stroke="#9CA3AF" stroke-width="0.5" />
+    </pattern>
+  </defs>
+  
+  <style>
+    /* CAD 오토캐드 표준 폰트 (영문/숫자: ROMANS, 한글: 모던 고딕) */
+    .cad-kr { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 11px; fill: #000000; }
+    .cad-kr-bold { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 11px; font-weight: bold; fill: #000000; }
+    .cad-kr-sm { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 9.5px; fill: #000000; }
+    
+    /* 텍스트 뒤 선 겹침 방지 (White Halo Masking) */
+    .cad-romans { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 11px; 
+      font-weight: 600; 
+      fill: #000000; 
+      letter-spacing: 0.6px; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 3.5px; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .cad-romans-bold { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 12px; 
+      font-weight: 700; 
+      fill: #000000; 
+      letter-spacing: 0.8px; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 4px; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .cad-romans-sm { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 9.5px; 
+      font-weight: 600; 
+      fill: #000000; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 3px; 
+    }
+    
+    /* 도면 타이틀 표준 */
+    .cad-title-kr { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: bold; letter-spacing: 10px; fill: #000000; }
+    .cad-title-scale { font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; font-size: 12px; font-weight: 700; fill: #000000; }
+    .cad-tag-text { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 9.5px; fill: #000000; }
+  </style>
+
+    <g transform="translate(1200, 80)">
+      <circle cx="0" cy="0" r="15" fill="#FFFFFF" stroke="#000000" stroke-width="1.2" />
+      <polygon points="0,-15 -6,11 0,5" fill="#000000" />
+      <polygon points="0,-15 6,11 0,5" fill="#FFFFFF" stroke="#000000" stroke-width="0.8" />
+      <text x="0" y="-19" class="cad-romans-bold" text-anchor="middle">N</text>
+    </g>
+    
+    <!-- 중심선 -->
+    <g stroke="#000000" stroke-width="0.75" stroke-dasharray="18, 3, 2.5, 3">
+      <line x1="120" y1="140" x2="1140" y2="140" />
+      <line x1="120" y1="640" x2="1140" y2="640" />
+      <line x1="200" y1="60" x2="200" y2="720" />
+      <line x1="1060" y1="60" x2="1060" y2="720" />
+    </g>
+
+    <!-- 바닥 마감: 인더스트리얼 투명 에폭시 라이닝 -->
+    <rect x="200" y="140" width="860" height="500" fill="url(#tile-grid-800)" stroke="none" />
+
+    <!-- 노출 적벽돌 및 콘크리트 외벽체 (200T) -->
+    <g fill="#C4C4C4" stroke="#000000" stroke-width="2.4">
+      <rect x="190" y="130" width="880" height="20" />
+      <rect x="190" y="130" width="20" height="520" />
+      <rect x="1050" y="130" width="20" height="520" />
+      <rect x="190" y="630" width="300" height="20" />
+      <rect x="650" y="630" width="420" height="20" />
+    </g>
+
+    <!-- 메인 출입구 인더스트리얼 글라스 피봇도어 -->
+    <g stroke="#000000" stroke-width="1.3" fill="#FFFFFF">
+      <rect x="490" y="635" width="160" height="10" />
+      <line x1="530" y1="635" x2="610" y2="580" stroke-width="2.0" />
+      <path d="M 610,640 A 80 80 0 0 0 610,580" stroke-dasharray="3, 3" fill="none" />
+      <text x="570" y="670" class="cad-kr-bold" text-anchor="middle">주 출 입 구 (PIVOT DOOR)</text>
+    </g>
+
+    <!-- [A] 인터랙티브 미디어월 &amp; 계단형 관람석 (Amphitheater Seating) -->
+    <g stroke="#000000" stroke-width="1.2" fill="#FFFFFF">
+      <!-- 대형 LED 미디어월 (W=6,000) -->
+      <rect x="240" y="155" width="300" height="15" fill="#000000" />
+      <text x="390" y="150" class="cad-romans-bold" text-anchor="middle">INTERACTIVE LED MEDIA WALL (W:6,000)</text>
+
+      <!-- 계단형 우드 스탠드 좌석 (3단) -->
+      <rect x="240" y="240" width="280" height="130" fill="#F3F4F6" rx="2" />
+      <line x1="240" y1="280" x2="520" y2="280" stroke-width="1.0" />
+      <line x1="240" y1="320" x2="520" y2="320" stroke-width="1.0" />
+      <text x="380" y="265" class="cad-kr" text-anchor="middle">우드 관람 스탠드 (STEP 1 H:450)</text>
+      <text x="380" y="305" class="cad-kr" text-anchor="middle">우드 관람 스탠드 (STEP 2 H:900)</text>
+      <text x="380" y="345" class="cad-kr" text-anchor="middle">우드 관람 스탠드 (STEP 3 H:1,350)</text>
+    </g>
+
+    <!-- [B] 굿즈 팝업 리테일 부스 &amp; 모듈러 스틸 이동식 카트 (4대) -->
+    <g stroke="#000000" stroke-width="1.2" fill="#FFFFFF">
+      <rect x="300" y="440" width="80" height="50" rx="3" />
+      <circle cx="310" cy="445" r="4" fill="#000000" />
+      <circle cx="370" cy="445" r="4" fill="#000000" />
+      <circle cx="310" cy="485" r="4" fill="#000000" />
+      <circle cx="370" cy="485" r="4" fill="#000000" />
+      <text x="340" y="468" class="cad-kr-sm" text-anchor="middle">이동식 모듈 카트 1</text>
+
+      <rect x="420" y="440" width="80" height="50" rx="3" />
+      <text x="460" y="468" class="cad-kr-sm" text-anchor="middle">이동식 모듈 카트 2</text>
+    </g>
+
+    <!-- [C] 브랜드 셀피 포토부스 2실 (Photo Studio) -->
+    <g fill="#D1D5DB" stroke="#000000" stroke-width="1.8">
+      <rect x="750" y="140" width="10" height="220" />
+      <rect x="750" y="250" width="310" height="10" />
+      <rect x="900" y="140" width="10" height="110" />
+    </g>
+    <g fill="#FFFFFF" stroke="#000000" stroke-width="1.0">
+      <text x="825" y="195" class="cad-kr-bold" text-anchor="middle">포토스튜디오 A</text>
+      <text x="980" y="195" class="cad-kr-bold" text-anchor="middle">포토스튜디오 B</text>
+      <circle cx="825" cy="225" r="12" />
+      <circle cx="980" cy="225" r="12" />
+    </g>
+
+    <!-- [D] 음료 바 &amp; 굿즈 계산대 (Beverage &amp; Cashier Bar) -->
+    <g stroke="#000000" stroke-width="1.4" fill="#FFFFFF">
+      <rect x="680" y="460" width="240" height="70" rx="3" fill="#E5E7EB" />
+      <rect x="700" y="480" width="40" height="30" fill="#000000" />
+      <text x="720" y="500" class="cad-romans-sm" fill="#FFFFFF" text-anchor="middle">ESPRESSO</text>
+      <text x="800" y="500" class="cad-kr-bold" text-anchor="middle">F&amp;B 음료 및 굿즈 결제 바</text>
+    </g>
+    
+    <g transform="translate(380, 390)">
+      <rect x="-80.0" y="-26" width="160" height="52" fill="#FFFFFF" stroke="#000000" stroke-width="0.9" />
+      <line x1="-80.0" y1="-9" x2="80.0" y2="-9" stroke="#000000" stroke-width="0.6" />
+      <line x1="-80.0" y1="8" x2="80.0" y2="8" stroke="#000000" stroke-width="0.6" />
+      <text x="0" y="-13" class="cad-kr-bold" text-anchor="middle">MEDIA EXPERIENCE ZONE</text>
+      <text x="0" y="3" class="cad-tag-text" text-anchor="middle">app. 투명 에폭시</text>
+      <text x="0" y="20" class="cad-romans-sm" text-anchor="middle">98.5㎡ / 29.8py</text>
+    </g>
+    
+    <g transform="translate(890, 310)">
+      <rect x="-75.0" y="-26" width="150" height="52" fill="#FFFFFF" stroke="#000000" stroke-width="0.9" />
+      <line x1="-75.0" y1="-9" x2="75.0" y2="-9" stroke="#000000" stroke-width="0.6" />
+      <line x1="-75.0" y1="8" x2="75.0" y2="8" stroke="#000000" stroke-width="0.6" />
+      <text x="0" y="-13" class="cad-kr-bold" text-anchor="middle">PHOTO STUDIO &amp; RETRIL</text>
+      <text x="0" y="3" class="cad-tag-text" text-anchor="middle">app. 컬러 블록 타일</text>
+      <text x="0" y="20" class="cad-romans-sm" text-anchor="middle">45.2㎡ / 13.7py</text>
+    </g>
+    
+      <line x1="200" y1="140" x2="200" y2="75" stroke="#000000" stroke-width="0.6" />
+      <line x1="1060" y1="140" x2="1060" y2="75" stroke="#000000" stroke-width="0.6" />
+      <line x1="200" y1="75" x2="1060" y2="75" stroke="#000000" stroke-width="0.8" />
+      <circle cx="200" cy="75" r="2.2" fill="#000000" />
+      <circle cx="1060" cy="75" r="2.2" fill="#000000" />
+      <text x="630.0" y="71" class="cad-romans" text-anchor="middle">18,000</text>
+    
+      <line x1="200" y1="140" x2="120" y2="140" stroke="#000000" stroke-width="0.6" />
+      <line x1="200" y1="640" x2="120" y2="640" stroke="#000000" stroke-width="0.6" />
+      <line x1="120" y1="140" x2="120" y2="640" stroke="#000000" stroke-width="0.8" />
+      <circle cx="120" cy="140" r="2.2" fill="#000000" />
+      <circle cx="120" cy="640" r="2.2" fill="#000000" />
+      <text x="115" y="390.0" class="cad-romans" text-anchor="middle" transform="rotate(-90 115 390.0)">11,000</text>
+    
+    <!-- 전통 제도 도면 타이틀 기호 ⦶ -->
+    <g transform="translate(650, 830)">
+      <circle cx="0" cy="0" r="16" fill="none" stroke="#000000" stroke-width="1.2" />
+      <line x1="-24" y1="0" x2="24" y2="0" stroke="#000000" stroke-width="1.0" />
+      <text x="0" y="-8" class="cad-title-kr" text-anchor="middle">평    면    도</text>
+    </g>
+    </svg>

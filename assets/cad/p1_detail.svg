@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 880" width="1300" height="880" style="background:#FFFFFF;">
+  <defs>
+    <!-- 800x800 포세린 타일 그리드 (약 32px) -->
+    <pattern id="tile-grid-800" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 600x600 바닥 타일 그리드 (약 24px) -->
+    <pattern id="tile-grid-600" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 300x300 테라조 타일 그리드 (약 14px) -->
+    <pattern id="tile-grid-300" width="14" height="14" patternUnits="userSpaceOnUse">
+      <rect width="14" height="14" fill="none" stroke="#E5E7EB" stroke-width="0.4" />
+    </pattern>
+    <!-- 원목 마루 / 헤링본 패턴 -->
+    <pattern id="wood-herringbone" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 0 L10 10 L0 20 M10 0 L20 10 L10 20" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 단면 콘크리트 해치 -->
+    <pattern id="concrete-hatch" width="8" height="8" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="8" x2="8" y2="0" stroke="#9CA3AF" stroke-width="0.5" />
+    </pattern>
+  </defs>
+  
+  <style>
+    /* CAD 오토캐드 표준 폰트 (영문/숫자: ROMANS, 한글: 모던 고딕) */
+    .cad-kr { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 11px; fill: #000000; }
+    .cad-kr-bold { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 11px; font-weight: bold; fill: #000000; }
+    .cad-kr-sm { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 9.5px; fill: #000000; }
+    
+    /* 텍스트 뒤 선 겹침 방지 (White Halo Masking) */
+    .cad-romans { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 11px; 
+      font-weight: 600; 
+      fill: #000000; 
+      letter-spacing: 0.6px; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 3.5px; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .cad-romans-bold { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 12px; 
+      font-weight: 700; 
+      fill: #000000; 
+      letter-spacing: 0.8px; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 4px; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .cad-romans-sm { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 9.5px; 
+      font-weight: 600; 
+      fill: #000000; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 3px; 
+    }
+    
+    /* 도면 타이틀 표준 */
+    .cad-title-kr { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: bold; letter-spacing: 10px; fill: #000000; }
+    .cad-title-scale { font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; font-size: 12px; font-weight: 700; fill: #000000; }
+    .cad-tag-text { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 9.5px; fill: #000000; }
+  </style>
+
+    <!-- 부분상세도: 특화 쇼케이스 및 바닥 걸레받이 결구 상세도 (S=1:10) -->
+    <g transform="translate(100, 80)">
+      <!-- 콘크리트 슬래브 단면 (Concrete Slab) -->
+      <rect x="100" y="520" width="850" height="120" fill="url(#concrete-hatch)" stroke="#000000" stroke-width="2.2" />
+      <!-- 바닥 모르타르 및 포세린 타일 마감 (T=30) -->
+      <rect x="100" y="490" width="850" height="30" fill="#E5E7EB" stroke="#000000" stroke-width="1.2" />
+      
+      <!-- 후면 경량 스터드 벽체 (C-STUD 65x45 + 석고보드 9.5Tx2) -->
+      <rect x="180" y="100" width="70" height="390" fill="#C4C4C4" stroke="#000000" stroke-width="2.0" />
+      <!-- 석고보드 더블 취부선 -->
+      <line x1="250" y1="100" x2="250" y2="490" stroke="#000000" stroke-width="1.0" />
+      <line x1="260" y1="100" x2="260" y2="490" stroke="#000000" stroke-width="1.2" />
+
+      <!-- 쇼케이스 본체 단면 (스틸 프레임 + 목대 + 인조대리석 상판) -->
+      <!-- 인조대리석 상판 (T=15) -->
+      <rect x="300" y="240" width="380" height="20" fill="#FFFFFF" stroke="#000000" stroke-width="1.6" />
+      <!-- 강화유리 쇼케이스 상자 (10T 저철분 유리) -->
+      <rect x="320" y="120" width="340" height="120" fill="none" stroke="#000000" stroke-width="2.0" />
+      <!-- LED 매립 알루미늄 압출 바 및 광확산 PC 커버 -->
+      <rect x="325" y="235" width="330" height="8" fill="#000000" />
+      <text x="490" y="230" class="cad-romans-sm" text-anchor="middle">ALUMINUM LED PROFILE (3000K)</text>
+
+      <!-- 쇼케이스 하부 목대 수납장 (18T 합판 위 스터코 마감) -->
+      <rect x="300" y="260" width="380" height="230" fill="#F3F4F6" stroke="#000000" stroke-width="1.6" />
+      <!-- 매립형 SUS 걸레받이 (H=60, D=20 인셋) -->
+      <rect x="320" y="450" width="340" height="40" fill="#C4C4C4" stroke="#000000" stroke-width="1.2" />
+
+      <!-- 상세 지시선 및 재료 스펙 (Leader lines) -->
+      <g stroke="#000000" stroke-width="0.8" fill="none">
+        <!-- 1. 저철분 유리 -->
+        <line x1="490" y1="120" x2="490" y2="60" />
+        <line x1="490" y1="60" x2="560" y2="60" />
+        <text x="570" y="64" class="cad-kr-bold" fill="#000000" stroke="none">10T 저철분 투명 강화유리 (UV접합)</text>
+
+        <!-- 2. 인조대리석 상판 -->
+        <line x1="680" y1="250" x2="740" y2="250" />
+        <text x="750" y="254" class="cad-kr-bold" fill="#000000" stroke="none">15T 인조대리석 (오로라 블랑)</text>
+
+        <!-- 3. 목대 수납장 -->
+        <line x1="680" y1="360" x2="740" y2="360" />
+        <text x="750" y="364" class="cad-kr-bold" fill="#000000" stroke="none">18T E0 친환경 MDF 위 무광 스터코 마감</text>
+
+        <!-- 4. SUS 걸레받이 -->
+        <line x1="660" y1="470" x2="740" y2="470" />
+        <text x="750" y="474" class="cad-kr-bold" fill="#000000" stroke="none">1.2T 헤어라인 스테인리스 스틸 매립 걸레받이 (H:60)</text>
+
+        <!-- 5. 바닥 슬래브 -->
+        <line x1="850" y1="505" x2="910" y2="505" />
+        <text x="920" y="509" class="cad-kr-bold" fill="#000000" stroke="none">800x800x12T 포세린 타일 (압착시공)</text>
+      </g>
+
+      <!-- 정밀 치수선 (S=1:10) -->
+      <line x1="280" y1="120" x2="280" y2="240" stroke="#000000" stroke-width="0.8" />
+      <circle cx="280" cy="120" r="2.2" fill="#000000" />
+      <circle cx="280" cy="240" r="2.2" fill="#000000" />
+      <text x="260" y="185" class="cad-romans-bold" text-anchor="middle">500</text>
+
+      <line x1="280" y1="240" x2="280" y2="490" stroke="#000000" stroke-width="0.8" />
+      <circle cx="280" cy="240" r="2.2" fill="#000000" />
+      <circle cx="280" cy="490" r="2.2" fill="#000000" />
+      <text x="260" y="370" class="cad-romans-bold" text-anchor="middle">750</text>
+    </g>
+    
+    <!-- 전통 제도 도면 타이틀 기호 ⦶ -->
+    <g transform="translate(650, 830)">
+      <circle cx="0" cy="0" r="16" fill="none" stroke="#000000" stroke-width="1.2" />
+      <line x1="-24" y1="0" x2="24" y2="0" stroke="#000000" stroke-width="1.0" />
+      <text x="0" y="-8" class="cad-title-kr" text-anchor="middle">부분상세도 (쇼케이스 단면)</text>
+    </g>
+    </svg>

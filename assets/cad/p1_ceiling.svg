@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 880" width="1300" height="880" style="background:#FFFFFF;">
+  <defs>
+    <!-- 800x800 포세린 타일 그리드 (약 32px) -->
+    <pattern id="tile-grid-800" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 600x600 바닥 타일 그리드 (약 24px) -->
+    <pattern id="tile-grid-600" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 300x300 테라조 타일 그리드 (약 14px) -->
+    <pattern id="tile-grid-300" width="14" height="14" patternUnits="userSpaceOnUse">
+      <rect width="14" height="14" fill="none" stroke="#E5E7EB" stroke-width="0.4" />
+    </pattern>
+    <!-- 원목 마루 / 헤링본 패턴 -->
+    <pattern id="wood-herringbone" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 0 L10 10 L0 20 M10 0 L20 10 L10 20" fill="none" stroke="#E5E7EB" stroke-width="0.5" />
+    </pattern>
+    <!-- 단면 콘크리트 해치 -->
+    <pattern id="concrete-hatch" width="8" height="8" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="8" x2="8" y2="0" stroke="#9CA3AF" stroke-width="0.5" />
+    </pattern>
+  </defs>
+  
+  <style>
+    /* CAD 오토캐드 표준 폰트 (영문/숫자: ROMANS, 한글: 모던 고딕) */
+    .cad-kr { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 11px; fill: #000000; }
+    .cad-kr-bold { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 11px; font-weight: bold; fill: #000000; }
+    .cad-kr-sm { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 9.5px; fill: #000000; }
+    
+    /* 텍스트 뒤 선 겹침 방지 (White Halo Masking) */
+    .cad-romans { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 11px; 
+      font-weight: 600; 
+      fill: #000000; 
+      letter-spacing: 0.6px; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 3.5px; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .cad-romans-bold { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 12px; 
+      font-weight: 700; 
+      fill: #000000; 
+      letter-spacing: 0.8px; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 4px; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .cad-romans-sm { 
+      font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; 
+      font-size: 9.5px; 
+      font-weight: 600; 
+      fill: #000000; 
+      paint-order: stroke fill; 
+      stroke: #FFFFFF; 
+      stroke-width: 3px; 
+    }
+    
+    /* 도면 타이틀 표준 */
+    .cad-title-kr { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: bold; letter-spacing: 10px; fill: #000000; }
+    .cad-title-scale { font-family: 'Romans', 'JetBrains Mono', 'Arial', monospace; font-size: 12px; font-weight: 700; fill: #000000; }
+    .cad-tag-text { font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; font-size: 9.5px; fill: #000000; }
+  </style>
+
+    <g transform="translate(1200, 80)">
+      <circle cx="0" cy="0" r="15" fill="#FFFFFF" stroke="#000000" stroke-width="1.2" />
+      <polygon points="0,-15 -6,11 0,5" fill="#000000" />
+      <polygon points="0,-15 6,11 0,5" fill="#FFFFFF" stroke="#000000" stroke-width="0.8" />
+      <text x="0" y="-19" class="cad-romans-bold" text-anchor="middle">N</text>
+    </g>
+    
+    <!-- 중심선 -->
+    <g stroke="#000000" stroke-width="0.75" stroke-dasharray="18, 3, 2.5, 3">
+      <line x1="120" y1="140" x2="1140" y2="140" />
+      <line x1="120" y1="390" x2="1140" y2="390" />
+      <line x1="120" y1="640" x2="1140" y2="640" />
+      <line x1="200" y1="60" x2="200" y2="720" />
+      <line x1="480" y1="60" x2="480" y2="720" />
+      <line x1="780" y1="60" x2="780" y2="720" />
+      <line x1="1060" y1="60" x2="1060" y2="720" />
+    </g>
+
+    <!-- 외벽 및 간막이벽 윤곽 (천장선 기준 실선 1.4px) -->
+    <rect x="200" y="140" width="860" height="500" fill="#FFFFFF" stroke="#000000" stroke-width="2.2" />
+    <rect x="775" y="140" width="10" height="250" fill="#E5E7EB" stroke="#000000" stroke-width="1.4" />
+    <rect x="775" y="470" width="295" height="10" fill="#E5E7EB" stroke="#000000" stroke-width="1.4" />
+
+    <!-- [A] 시스템 에어컨 4-WAY 카세트 실내기 (2개소) -->
+    <g stroke="#000000" stroke-width="1.2" fill="#FFFFFF">
+      <!-- 4-Way 1 -->
+      <rect x="440" y="230" width="60" height="60" />
+      <rect x="448" y="238" width="44" height="44" fill="#F3F4F6" />
+      <line x1="440" y1="230" x2="500" y2="290" stroke-width="0.8" />
+      <line x1="440" y1="290" x2="500" y2="230" stroke-width="0.8" />
+      <text x="470" y="222" class="cad-kr-sm" text-anchor="middle">4-WAY 시스템 냉난방기</text>
+      <!-- 점검구 450x450 -->
+      <rect x="515" y="240" width="24" height="24" stroke-dasharray="2, 2" />
+      <line x1="515" y1="240" x2="539" y2="264" stroke-width="0.6" />
+      <text x="527" y="274" class="cad-romans-sm" text-anchor="middle">450x450</text>
+      <text x="527" y="284" class="cad-kr-sm" text-anchor="middle">점검구</text>
+
+      <!-- 4-Way 2 -->
+      <rect x="440" y="470" width="60" height="60" />
+      <rect x="448" y="478" width="44" height="44" fill="#F3F4F6" />
+      <line x1="440" y1="470" x2="500" y2="530" stroke-width="0.8" />
+      <line x1="440" y1="530" x2="500" y2="470" stroke-width="0.8" />
+      <text x="470" y="546" class="cad-kr-sm" text-anchor="middle">4-WAY 시스템 냉난방기</text>
+      <!-- 점검구 -->
+      <rect x="515" y="480" width="24" height="24" stroke-dasharray="2, 2" />
+      <line x1="515" y1="480" x2="539" y2="504" stroke-width="0.6" />
+      <text x="527" y="514" class="cad-romans-sm" text-anchor="middle">450x450</text>
+      <text x="527" y="524" class="cad-kr-sm" text-anchor="middle">점검구</text>
+    </g>
+
+    <!-- [B] 중앙 키네틱 무대 직상부 서클 펜던트 링 조명 (Ø3,600) -->
+    <g fill="none" stroke="#000000" stroke-width="1.6">
+      <circle cx="490" cy="380" r="90" />
+      <circle cx="490" cy="380" r="82" stroke-dasharray="4, 3" stroke-width="1.0" />
+      <text x="490" y="375" class="cad-kr-bold" text-anchor="middle" fill="#000000" stroke="none">LED 서클 펜던트 조명 (Ø3,600)</text>
+      <text x="490" y="390" class="cad-romans-sm" text-anchor="middle" fill="#000000" stroke="none">SUS WIRE SUSPENDED</text>
+    </g>
+
+    <!-- [C] 마그네틱 매립 트랙 레일 및 스폿 라이트 (Magnetic Track Rail) -->
+    <g stroke="#000000" stroke-width="1.5">
+      <!-- 레일 1 (서측 벽면 비추는 트랙) -->
+      <line x1="280" y1="180" x2="280" y2="600" />
+      <!-- 레일 2 (중앙 좌측 트랙) -->
+      <line x1="380" y1="180" x2="380" y2="600" />
+      <!-- 레일 3 (중앙 우측 트랙) -->
+      <line x1="620" y1="180" x2="620" y2="600" />
+      <!-- 레일 4 (카운터 및 동측 트랙) -->
+      <line x1="720" y1="180" x2="720" y2="600" />
+    </g>
+    
+    <!-- 트랙 스팟 조명 심볼 (●) -->
+    <g fill="#000000" stroke="none">
+    <circle cx="280" cy="200" r="4" /><line x1="273" y1="200" x2="287" y2="200" stroke="#000000" stroke-width="0.8" /><circle cx="280" cy="260" r="4" /><line x1="273" y1="260" x2="287" y2="260" stroke="#000000" stroke-width="0.8" /><circle cx="280" cy="320" r="4" /><line x1="273" y1="320" x2="287" y2="320" stroke="#000000" stroke-width="0.8" /><circle cx="280" cy="380" r="4" /><line x1="273" y1="380" x2="287" y2="380" stroke="#000000" stroke-width="0.8" /><circle cx="280" cy="440" r="4" /><line x1="273" y1="440" x2="287" y2="440" stroke="#000000" stroke-width="0.8" /><circle cx="280" cy="500" r="4" /><line x1="273" y1="500" x2="287" y2="500" stroke="#000000" stroke-width="0.8" /><circle cx="280" cy="560" r="4" /><line x1="273" y1="560" x2="287" y2="560" stroke="#000000" stroke-width="0.8" /><circle cx="380" cy="200" r="4" /><line x1="373" y1="200" x2="387" y2="200" stroke="#000000" stroke-width="0.8" /><circle cx="380" cy="260" r="4" /><line x1="373" y1="260" x2="387" y2="260" stroke="#000000" stroke-width="0.8" /><circle cx="380" cy="320" r="4" /><line x1="373" y1="320" x2="387" y2="320" stroke="#000000" stroke-width="0.8" /><circle cx="380" cy="380" r="4" /><line x1="373" y1="380" x2="387" y2="380" stroke="#000000" stroke-width="0.8" /><circle cx="380" cy="440" r="4" /><line x1="373" y1="440" x2="387" y2="440" stroke="#000000" stroke-width="0.8" /><circle cx="380" cy="500" r="4" /><line x1="373" y1="500" x2="387" y2="500" stroke="#000000" stroke-width="0.8" /><circle cx="380" cy="560" r="4" /><line x1="373" y1="560" x2="387" y2="560" stroke="#000000" stroke-width="0.8" /><circle cx="620" cy="200" r="4" /><line x1="613" y1="200" x2="627" y2="200" stroke="#000000" stroke-width="0.8" /><circle cx="620" cy="260" r="4" /><line x1="613" y1="260" x2="627" y2="260" stroke="#000000" stroke-width="0.8" /><circle cx="620" cy="320" r="4" /><line x1="613" y1="320" x2="627" y2="320" stroke="#000000" stroke-width="0.8" /><circle cx="620" cy="380" r="4" /><line x1="613" y1="380" x2="627" y2="380" stroke="#000000" stroke-width="0.8" /><circle cx="620" cy="440" r="4" /><line x1="613" y1="440" x2="627" y2="440" stroke="#000000" stroke-width="0.8" /><circle cx="620" cy="500" r="4" /><line x1="613" y1="500" x2="627" y2="500" stroke="#000000" stroke-width="0.8" /><circle cx="620" cy="560" r="4" /><line x1="613" y1="560" x2="627" y2="560" stroke="#000000" stroke-width="0.8" /><circle cx="720" cy="200" r="4" /><line x1="713" y1="200" x2="727" y2="200" stroke="#000000" stroke-width="0.8" /><circle cx="720" cy="260" r="4" /><line x1="713" y1="260" x2="727" y2="260" stroke="#000000" stroke-width="0.8" /><circle cx="720" cy="320" r="4" /><line x1="713" y1="320" x2="727" y2="320" stroke="#000000" stroke-width="0.8" /><circle cx="720" cy="380" r="4" /><line x1="713" y1="380" x2="727" y2="380" stroke="#000000" stroke-width="0.8" /><circle cx="720" cy="440" r="4" /><line x1="713" y1="440" x2="727" y2="440" stroke="#000000" stroke-width="0.8" /><circle cx="720" cy="500" r="4" /><line x1="713" y1="500" x2="727" y2="500" stroke="#000000" stroke-width="0.8" /><circle cx="720" cy="560" r="4" /><line x1="713" y1="560" x2="727" y2="560" stroke="#000000" stroke-width="0.8" /></g>
+    <!-- T5 간접 등박스 라인조명 (북측 벽면 상부) -->
+    <line x1="240" y1="160" x2="740" y2="160" stroke="#000000" stroke-width="2.2" stroke-dasharray="6, 3" />
+    <text x="490" y="175" class="cad-kr-sm" text-anchor="middle">T5 간접 등박스 라인조명 (3000K)</text>
+
+    <!-- 전면 유리창 라인 디퓨저 (Slot Diffuser L=6,000) -->
+    <line x1="360" y1="625" x2="680" y2="625" stroke="#000000" stroke-width="2.0" />
+    <line x1="360" y1="628" x2="680" y2="628" stroke="#000000" stroke-width="0.8" />
+    <text x="520" y="618" class="cad-romans-sm" text-anchor="middle">LINEAR SLOT DIFFUSER (L=6,000)</text>
+
+    <!-- VIP룸 간접 등박스 우물천장 -->
+    <rect x="800" y="160" width="230" height="210" fill="none" stroke="#000000" stroke-width="1.8" stroke-dasharray="8, 4" />
+    <text x="915" y="240" class="cad-kr-bold" text-anchor="middle">우물천장 간접조명 등박스</text>
+    <text x="915" y="255" class="cad-romans-bold" text-anchor="middle">CH: 2,700 (COVE CH: 2,900)</text>
+
+    <!-- 소방 설비 심볼 (스프링클러 Ⓢ, 연기감지기 Ⓓ, 비상구유도등 Ⓔ) -->
+    <g transform="translate(680, 240)">
+      <circle cx="0" cy="0" r="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" />
+      <text x="0" y="3.5" class="cad-romans-bold" font-size="8" text-anchor="middle">S</text>
+      <text x="0" y="-9" class="cad-kr-sm" text-anchor="middle">스프링클러</text>
+    </g>
+    <g transform="translate(680, 480)">
+      <circle cx="0" cy="0" r="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" />
+      <text x="0" y="3.5" class="cad-romans-bold" font-size="8" text-anchor="middle">S</text>
+    </g>
+    <g transform="translate(320, 380)">
+      <circle cx="0" cy="0" r="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" />
+      <text x="0" y="3.5" class="cad-romans-bold" font-size="8" text-anchor="middle">D</text>
+      <text x="0" y="-9" class="cad-kr-sm" text-anchor="middle">연기감지기</text>
+    </g>
+    
+    <g transform="translate(490, 310)">
+      <rect x="-80.0" y="-26" width="160" height="52" fill="#FFFFFF" stroke="#000000" stroke-width="0.9" />
+      <line x1="-80.0" y1="-9" x2="80.0" y2="-9" stroke="#000000" stroke-width="0.6" />
+      <line x1="-80.0" y1="8" x2="80.0" y2="8" stroke="#000000" stroke-width="0.6" />
+      <text x="0" y="-13" class="cad-kr-bold" text-anchor="middle">MAIN SHOWROOM</text>
+      <text x="0" y="3" class="cad-tag-text" text-anchor="middle">app. 노출천장 위 VP도장</text>
+      <text x="0" y="20" class="cad-romans-sm" text-anchor="middle">CH: 3,800</text>
+    </g>
+    
+    <g transform="translate(940, 560)">
+      <rect x="-70.0" y="-26" width="140" height="52" fill="#FFFFFF" stroke="#000000" stroke-width="0.9" />
+      <line x1="-70.0" y1="-9" x2="70.0" y2="-9" stroke="#000000" stroke-width="0.6" />
+      <line x1="-70.0" y1="8" x2="70.0" y2="8" stroke="#000000" stroke-width="0.6" />
+      <text x="0" y="-13" class="cad-kr-bold" text-anchor="middle">STORAGE &amp; OFFICE</text>
+      <text x="0" y="3" class="cad-tag-text" text-anchor="middle">app. 석고보드 위 천장지</text>
+      <text x="0" y="20" class="cad-romans-sm" text-anchor="middle">CH: 2,700</text>
+    </g>
+    
+      <line x1="200" y1="140" x2="200" y2="75" stroke="#000000" stroke-width="0.6" />
+      <line x1="1060" y1="140" x2="1060" y2="75" stroke="#000000" stroke-width="0.6" />
+      <line x1="200" y1="75" x2="1060" y2="75" stroke="#000000" stroke-width="0.8" />
+      <circle cx="200" cy="75" r="2.2" fill="#000000" />
+      <circle cx="1060" cy="75" r="2.2" fill="#000000" />
+      <text x="630.0" y="71" class="cad-romans" text-anchor="middle">18,000</text>
+    
+      <line x1="200" y1="140" x2="120" y2="140" stroke="#000000" stroke-width="0.6" />
+      <line x1="200" y1="640" x2="120" y2="640" stroke="#000000" stroke-width="0.6" />
+      <line x1="120" y1="140" x2="120" y2="640" stroke="#000000" stroke-width="0.8" />
+      <circle cx="120" cy="140" r="2.2" fill="#000000" />
+      <circle cx="120" cy="640" r="2.2" fill="#000000" />
+      <text x="115" y="390.0" class="cad-romans" text-anchor="middle" transform="rotate(-90 115 390.0)">11,000</text>
+    
+    <!-- 전통 제도 도면 타이틀 기호 ⦶ -->
+    <g transform="translate(650, 830)">
+      <circle cx="0" cy="0" r="16" fill="none" stroke="#000000" stroke-width="1.2" />
+      <line x1="-24" y1="0" x2="24" y2="0" stroke="#000000" stroke-width="1.0" />
+      <text x="0" y="-8" class="cad-title-kr" text-anchor="middle">천    장    도</text>
+    </g>
+    </svg>
